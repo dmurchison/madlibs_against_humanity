@@ -19,7 +19,7 @@ const MadlibSchema = new Schema({
     type: Array,
     required: true
   },
-  catagory: {
+  category: {
     type: String
   },
   rating: {

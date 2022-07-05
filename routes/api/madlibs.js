@@ -41,7 +41,7 @@ router.post('/',
       }
   
       const newMadlib = new Madlib({
-        text: req.body.text,
+        text: req.body.body,
         user: req.user.id
       });
   
