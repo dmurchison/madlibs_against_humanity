@@ -1,6 +1,5 @@
 
 # Database authenticity
-/config/keys.js
-
+/config/keys_dev.js 
 # node / bundle files
 /node_modules
