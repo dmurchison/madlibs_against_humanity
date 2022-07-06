@@ -35,11 +35,11 @@ class SignupForm extends React.Component {
     return(
       <ul>
         {
-            this.props.errors.map( (error, i) => (
-                <li key={`error-${i}`}>
-                    { error }
-                </li>
-            ))
+          this.props.errors.map( (error, i) => (
+              <li key={`error-${i}`}>
+                  { error }
+              </li>
+          ))
         }
       </ul>
     );
@@ -74,7 +74,7 @@ class SignupForm extends React.Component {
                 placeholder="Confirm Password"
               />
             
-            <input type="submit" value="Submit" />
+            <button>Submit</button>
             
             {this.renderErrors()}
           </div>
