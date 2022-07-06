@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
 const bodyParser = require("body-parser");
+const path = require('path');
 
 // routes
 const users = require("./routes/api/users");
@@ -31,3 +32,11 @@ app.use("/api/users", users);
 
 const port = process.env.PORT || 5001;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
+
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
