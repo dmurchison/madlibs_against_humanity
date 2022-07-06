@@ -1,4 +1,5 @@
 // routes/api/madlibs.js
+const { json } = require('body-parser');
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -31,6 +32,14 @@ router.get('/:id', (req, res) => {
         );
 });
 
+router.delete('/:id', (req, res) => {
+    Madlib.deleteOne({_id: req.params.id})
+    .then(json({message:"Deleted!"})) // not displaying. displays err message instead
+        .catch(err =>
+            res.status(404).json({ nomadlibfound: 'No madlib found with that ID' })
+        );
+});
+
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
@@ -39,15 +48,21 @@ router.post('/',
       if (!isValid) {
         return res.status(400).json(errors);
       }
-  
+      
+      const keywords = ['noun','adjective','verb','adverb']
+      const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+
       const newMadlib = new Madlib({
         body: req.body.body,
         user: req.user.id,
-        title: req.body.title
+        title: req.body.title,
+        blanks: req.body.body.split(' ').filter(word => (keywords.includes(word.replace(punctuation, '').toLowerCase())))
       });
   
       newMadlib.save().then(madlib => res.json(madlib));
     }
 );
+
+
 
 module.exports = router;
