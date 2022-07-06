@@ -7,22 +7,10 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-  }
-
-  // Once the user has been authenticated, redirect to the Home(?) Page
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      debugger; // can i see where the original destination was prior to the forced auth login?
-      this.props.history.push('/');
-    }
-
-    // Set or clear errors
-    this.setState({errors: nextProps.errors})
   }
 
   // Handle input field updates
@@ -49,9 +37,9 @@ class LoginForm extends React.Component {
     return(
       <ul>
         {
-            Object.keys(this.state.errors).map((error, i) => (
+            this.props.errors.map((error, i) => (
                 <li key={`error-${i}`}>
-                    {this.state.errors[error]}
+                    { error }
                 </li>
             ))
         }
