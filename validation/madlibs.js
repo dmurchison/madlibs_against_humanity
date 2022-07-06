@@ -19,6 +19,10 @@ module.exports = function validateMadlibInput(data) {
     errors.body = 'Title is required';
   }
 
+  // if (!data.blanks.length) {
+  //   errors.body = 'Madlib requires blanks';
+  // }
+
   return {
     errors,
     isValid: Object.keys(errors).length === 0
