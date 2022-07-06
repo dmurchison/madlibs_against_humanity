@@ -1,6 +1,9 @@
 {
   "name": "madlibs_against_humanity",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.15.0"
+  },
   "description": "Madlibs against humanity!",
   "main": "app.js",
   "scripts": {
@@ -9,7 +12,8 @@
     "server:debug": "nodemon --inspect app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",
