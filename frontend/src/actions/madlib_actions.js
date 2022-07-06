@@ -3,19 +3,21 @@ import { getMadlibs, getUserMadlibs, writeMadlib } from '../util/madlib_api_util
 export const RECEIVE_MADLIBS = "RECEIVE_MADLIBS";
 export const RECEIVE_NEW_MADLIB = "RECEIVE_NEW_MADLIB";
 
-export const receiveMadlibs = madlibs => ({
+const receiveMadlibs = response => ({
   type: RECEIVE_MADLIBS,
-  madlibs
+  madlibs: response.data
 });
 
-export const receiveNewMadlib = madlib => ({
+const receiveNewMadlib = madlib => ({
   type: RECEIVE_NEW_MADLIB,
   madlib
 })
 
+//im calling the param for the .then() response because its the
+// response of the promise
 export const fetchMadlibs = () => dispatch => (
   getMadlibs()
-    .then(madlibs => dispatch(receiveMadlibs(madlibs)))
+    .then( response => dispatch(receiveMadlibs(response)))
     .catch(err => console.log(err))
 );
 
