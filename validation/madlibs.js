@@ -5,14 +5,18 @@ const validText = require('./valid-text');
 module.exports = function validateMadlibInput(data) {
   let errors = {};
 
-  data.text = validText(data.text) ? data.text : '';
+  data.body = validText(data.body) ? data.body : '';
 
-  if (!Validator.isLength(data.text, { min: 20 })) {
-    errors.text = 'Madlib cant be smaller than 20 characters';
+  if (!Validator.isLength(data.body, { min: 20 })) {
+    errors.body = 'Madlib cant be smaller than 20 characters';
   }
 
-  if (Validator.isEmpty(data.text)) {
-    errors.text = 'Text field is required';
+  if (Validator.isEmpty(data.body)) {
+    errors.body = 'Madlib body is required';
+  }
+
+  if (Validator.isEmpty(data.title)) {
+    errors.body = 'Title is required';
   }
 
   return {

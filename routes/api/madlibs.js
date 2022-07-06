@@ -9,7 +9,7 @@ const validateMadlibInput = require('../../validation/madlibs');
 
 router.get('/', (req, res) => {
     Madlib.find()
-        .sort({ date: -1 })
+        .sort({ date: -1 })// sort by date, newest first
         .then(madlibs => res.json(madlibs))
         .catch(err => res.status(404).json({ nomadlibsfound: 'No madlibs found' }));
 });
@@ -35,14 +35,15 @@ router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
       const { errors, isValid } = validateMadlibInput(req.body);
-  
+        
       if (!isValid) {
         return res.status(400).json(errors);
       }
   
       const newMadlib = new Madlib({
-        text: req.body.body,
-        user: req.user.id
+        body: req.body.body,
+        user: req.user.id,
+        title: req.body.title
       });
   
       newMadlib.save().then(madlib => res.json(madlib));

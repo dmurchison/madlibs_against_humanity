@@ -17,7 +17,7 @@ const MadlibSchema = new Schema({
   },
   blanks: {
     type: Array,
-    required: true
+    // required: true
   },
   category: {
     type: String
