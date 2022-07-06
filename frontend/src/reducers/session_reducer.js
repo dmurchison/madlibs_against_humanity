@@ -7,7 +7,7 @@ isAuthenticated: false,
 user: {}
 };
 
-export default function(state = initialState, action) {
+const sessionReducer = (state = initialState, action) => {
     Object.freeze(state);
 
     switch (action.type) {
@@ -30,4 +30,6 @@ export default function(state = initialState, action) {
         default:
             return state;
     }
-}
+};
+
+export default sessionReducer;
