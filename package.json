@@ -1,6 +1,9 @@
 {
   "name": "madlibs_against_humanity",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.15.0"
+  },
   "description": "Madlibs against humanity!",
   "main": "app.js",
   "scripts": {
