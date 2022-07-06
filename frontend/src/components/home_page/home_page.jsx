@@ -6,6 +6,7 @@ class HomePage extends React.Component {
     return (
       <div>
         <h1>Madlibs Against Humanity</h1>
+        
         <footer>
           Lol
         </footer>

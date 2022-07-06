@@ -11,12 +11,8 @@ class Tweet extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchTweets();
-  }
-
-  componentWillReceiveProps(newState) {
-    this.setState({ tweets: newState.tweets });
   }
 
   render() {
@@ -35,4 +31,4 @@ class Tweet extends React.Component {
   }
 }
 
-export default withRouter(Tweet);
+export default Tweet;
