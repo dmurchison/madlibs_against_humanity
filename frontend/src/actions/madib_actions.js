@@ -1,38 +1,32 @@
-import { getTweets, getUserTweets, writeTweet } from '../util/tweet_api_util';
+import { getMadlibs, getUserMadlibs, writeMadlib } from '../util/madlib_api_util';
 
-export const RECEIVE_TWEETS = "RECEIVE_TWEETS";
-export const RECEIVE_USER_TWEETS = "RECEIVE_USER_TWEETS";
-export const RECEIVE_NEW_TWEET = "RECEIVE_NEW_TWEET";
+export const RECEIVE_MADLIBS = "RECEIVE_MADLIBS";
+export const RECEIVE_NEW_MADLIB = "RECEIVE_NEW_MADLIB";
 
-export const receiveTweets = tweets => ({
-  type: RECEIVE_TWEETS,
-  tweets
+export const receiveMadlibs = madlibs => ({
+  type: RECEIVE_MADLIBS,
+  madlibs
 });
 
-export const receiveUserTweets = tweets => ({
-  type: RECEIVE_USER_TWEETS,
-  tweets
-});
-
-export const receiveNewTweet = tweet => ({
-  type: RECEIVE_NEW_TWEET,
-  tweet
+export const receiveNewMadlib = madlib => ({
+  type: RECEIVE_NEW_MADLIB,
+  madlib
 })
 
-export const fetchTweets = () => dispatch => (
-  getTweets()
-    .then(tweets => dispatch(receiveTweets(tweets)))
+export const fetchMadlibs = () => dispatch => (
+  getMadlibs()
+    .then(madlibs => dispatch(receiveMadlibs(madlibs)))
     .catch(err => console.log(err))
 );
 
-export const fetchUserTweets = id => dispatch => (
-  getUserTweets(id)
-    .then(tweets => dispatch(receiveUserTweets(tweets)))
+export const fetchUserMadlibs = id => dispatch => (
+  getUserMadlibs(id)
+    .then(madlibs => dispatch(receiveMadlibs(madlibs)))
     .catch(err => console.log(err))
 );
 
-export const composeTweet = data => dispatch => (
-  writeTweet(data)
-    .then(tweet => dispatch(receiveNewTweet(tweet)))
+export const composeMadlib = data => dispatch => (
+  writeMadlib(data)
+    .then(madlib => dispatch(receiveNewMadlib(madlib)))
     .catch(err => console.log(err))
 );

@@ -1,21 +1,17 @@
-import { RECEIVE_TWEETS, RECEIVE_USER_TWEETS, RECEIVE_NEW_TWEET } from '../actions/tweet_actions';
+import { RECEIVE_MADLIBS, RECEIVE_NEW_MADLIB } from '../actions/madlib_actions';
   
-  const TweetsReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
+  const MadlibsReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch(action.type) {
-      case RECEIVE_TWEETS:
-        newState.all = action.tweets.data;
-        return newState;
-      case RECEIVE_USER_TWEETS:
-        newState.user = action.tweets.data;
-        return newState;
-      case RECEIVE_NEW_TWEET:
-        newState.new = action.tweet.data
+      case RECEIVE_MADLIBS:
+        return action.madlibs;
+      case RECEIVE_NEW_MADLIB:
+        newState[action.madlib.id] = action.madlib
         return newState;
       default:
         return state;
     }
   };
   
-  export default TweetsReducer;
+  export default MadlibsReducer;
