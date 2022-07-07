@@ -15,8 +15,8 @@ const App = () => (
     <NavBarContainer />
     <Switch>
         <ProtectedRoute exact path="/madlibs/new" component={ComposeContainer} />
-        <ProtectedRoute exact path="/madlibs/edit" component={EditContainer} />
-        <Route exact path="/madlibs/play" component={PlayContainer} />
+        <ProtectedRoute exact path="/madlibs/:id/edit" component={EditContainer} />
+        <Route exact path="/madlibs/:id/play" component={PlayContainer} />
         <Route exact path="/" component={HomePage} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />

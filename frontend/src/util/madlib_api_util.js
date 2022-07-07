@@ -16,7 +16,7 @@ export const writeMadlib = data => {
   return axios.post('/api/madlibs/', data)
 }
 
-export const updateMadlib = data => {
+export const editMadlib = data => {
   return axios.patch('/api/madlibs/'+data._id, data)//?? unfinished. needs data and id?
 }
 
