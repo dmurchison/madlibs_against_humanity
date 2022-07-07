@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TweetBox extends React.Component {
+class MadlibBox extends React.Component {
   render() {
     return (
         <div>
@@ -10,4 +10,4 @@ class TweetBox extends React.Component {
   }
 }
 
-export default TweetBox;
+export default MadlibBox;

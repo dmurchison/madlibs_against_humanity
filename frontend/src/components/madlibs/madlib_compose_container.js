@@ -1,18 +1,17 @@
 import { connect } from 'react-redux';
-import { composeTweet } from '../../actions/tweet_actions';
-import TweetCompose from './tweet_compose';
+import {composeMadlib} from '../../actions/madlib_actions.js'
+import MadlibCompose from './madlib_compose';
 
-const mapStateToProps = (state) => {
+const mapSTP = (state) => {
   return {
-    currentUser: state.session.user,
-    newTweet: state.tweets.new
+    formType: 'Create'
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDTP = dispatch => {
   return {
-    composeTweet: data => dispatch(composeTweet(data))
+    action: data => dispatch(composeMadlib(data))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TweetCompose);
+export default connect(mapSTP, mapDTP)(MadlibCompose);
