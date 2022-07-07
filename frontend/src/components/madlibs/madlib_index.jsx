@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class MadlibIndex extends React.Component {
   constructor(props) {
@@ -17,7 +18,9 @@ class MadlibIndex extends React.Component {
         <h2>All Madlibs</h2>
         {
           this.props.madlibs.map( (madlib, i) => (
-            <div key={`madlib-${i}`}>{madlib.title}</div>
+            <Link key={`madlib-link-${i}`} to={`madlibs/${madlib._id}`}>
+              <div key={`madlib-${i}`}>{madlib.title}</div>
+            </Link>            
           ))
         }
       </div>
