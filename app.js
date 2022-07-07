@@ -13,6 +13,20 @@ const madlibs = require("./routes/api/madlibs")
 const User = require("./models/User");
 const Madlib = require("./models/Madlib")
 
+
+mongoose
+.connect(db, { useNewUrlParser: true })
+.then(() => console.log("Connected to MongoDB successfully"))
+.catch(err => console.log(err));
+
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+const passport = require('passport');
+app.use(passport.initialize());
+require('./config/passport')(passport);
+
 if (process.env.NODE_ENV === 'production') {
   app.use("/", express.static('frontend/build'));
   app.get('/', (req, res) => {
@@ -20,20 +34,8 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("Connected to MongoDB successfully"))
-  .catch(err => console.log(err));
-  
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-  
-const passport = require('passport');
-app.use(passport.initialize());
-require('./config/passport')(passport);
-  
 app.get("/", (req, res) => {
-  res.send("Welcome to MadLibs Against Humanity!");
+  res.send("React Broke!");
 });
 
 
