@@ -1,0 +1,16 @@
+// Footer
+.footer-container {
+  position: fixed;
+  left: 0;
+  height: 5rem;
+  bottom: 0;
+  width: 100%;
+  background: radial-gradient(circle at bottom, rgb(0, 0, 0) 0, rgb(255, 255, 255) 100%);
+  color: black;
+  text-align: center;
+}
+
+.footer-dev-info {
+  display: inline-block;
+  padding: 0px 5px;
+}
