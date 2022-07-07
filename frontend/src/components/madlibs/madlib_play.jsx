@@ -5,9 +5,10 @@ class MadlibPlay extends React.Component {
   constructor(props) {
       super(props);
 
-      this.state = {
-          title: "",
-          text: "",
+      this.state = //this.props.currentMadlib
+      {
+          fillIns: [],
+          text: ""
       }
 
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,35 +17,39 @@ class MadlibPlay extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let madlib = {
-      title: this.state.title,
-      body: this.state.text
-    };
-
-    this.props.composeMadlib(madlib); 
-    this.setState({title: '',text: ''})  // redirect to user page instead
+    let fillIns = this.state.fillIns;
+    let finished = this.props.currentMadlib.body;
+    while(fillIns.length){finished = finished.replace(/noun|adjective|verb|adverb/, fillIns.shift())}
+    this.setState({text: finished})
   }
 
-  update(fld) {
-    return e => this.setState({
-      [fld]: e.currentTarget.value
-    }).then();
+  update(idx) {
+    return e => {
+      let newState = this.state.fillIns;
+      newState[idx] = e.currentTarget.value
+      this.setState({
+      fillIns: newState
+    })}
   }
 
   render() {
-    let { formType } = this.props;
+    let { currentMadlib } = this.props;
+    let blanks = currentMadlib.blanks;
     return (
         <div>
             <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="title"/>
-                <textarea
-                    value={this.state.text}
-                    onChange={this.update('text')}
-                    placeholder="Madlib body..."
-                />
-                <button type="submit">{formType}</button>
+                {
+                  blanks.map( (blank, i) => (
+                    <div>
+                      <br/>
+                      <input type="text" onChange={this.update(i)} placeholder={blank}/>
+                      <br/>
+                    </div>
+                  ))
+                }
+                <button type="submit">Finish</button>
             </form>
-            <MadlibBox text={this.state.text} />
+            <MadlibBox title={this.state.title} body={this.state.text} />
         </div>
     )
   }

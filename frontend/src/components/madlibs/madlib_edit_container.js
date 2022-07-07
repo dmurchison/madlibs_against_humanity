@@ -4,15 +4,16 @@ import MadlibCompose from './madlib_compose';
 
 const mapSTP = (state,ownProps) => {
   return {
-    currentMadlib: state.madlibs[ownProps.match.params.id],
+    currentMadlib: state.entities.madlibs[ownProps.match.params.id],
+    currentUser: state.session.user.id,
     formType: 'Edit'
   };
 };
 
-const mapDTP = dispatch => {
+const mapDTP = (dispatch,ownProps) => {
   return {
     action: data => dispatch(updateMadlib(data)),
-    fetchMadlib: data => dispatch(fetchMadlib(data))
+    fetchMadlib: () => dispatch(fetchMadlib(ownProps.match.params.id))
   };
 };
 
