@@ -4,6 +4,10 @@ export const getMadlibs = () => {
   return axios.get('/api/madlibs')
 };
 
+export const getMadlib = id => {
+  return axios.get('/api/madlibs/'+id)
+};
+
 export const getUserMadlibs = id => {
   return axios.get(`/api/madlibs/user/${id}`)
 };
@@ -11,3 +15,11 @@ export const getUserMadlibs = id => {
 export const writeMadlib = data => {
   return axios.post('/api/madlibs/', data)
 }
+
+export const updateMadlib = data => {
+  return axios.patch('/api/madlibs/'+data._id, data)//?? unfinished. needs data and id?
+}
+
+export const dumpMadlib = id => {
+  return axios.delete('/api/madlibs/'+id)
+};

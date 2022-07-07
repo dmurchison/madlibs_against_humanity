@@ -40,6 +40,21 @@ router.delete('/:id', (req, res) => {
         );
 });
 
+router.patch('/:id', (req, res) => {
+    const query = {_id: req.params.id}
+    const keywords = ['noun','adjective','verb','adverb']
+    const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+    const editData = {
+        body: req.body.body,
+        title: req.body.title,
+        blanks: req.body.body.split(' ').filter(word => (keywords.includes(word.replace(punctuation, '').toLowerCase())))
+    }
+    Madlib.findOneAndUpdate(query, editData, (err, doc) => {
+        if (err) return res.status(404).json(errors);
+        return res.json('Succesfully saved.');
+    });
+});
+
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {

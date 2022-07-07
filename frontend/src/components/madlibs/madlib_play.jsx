@@ -1,7 +1,7 @@
 import React from 'react';
 import MadlibBox from './madlib_box';
 
-class MadlibCompose extends React.Component {
+class MadlibPlay extends React.Component {
   constructor(props) {
       super(props);
 
@@ -21,11 +21,8 @@ class MadlibCompose extends React.Component {
       body: this.state.text
     };
 
-    let {action, formType} = this.props;
-    action(madlib);
-    if (formType === 'Create'){
-      this.setState({title: '',text: ''})  // redirect to user page instead
-    }    
+    this.props.composeMadlib(madlib); 
+    this.setState({title: '',text: ''})  // redirect to user page instead
   }
 
   update(fld) {
@@ -53,4 +50,4 @@ class MadlibCompose extends React.Component {
   }
 }
 
-export default MadlibCompose;
+export default MadlibPlay;

@@ -10,7 +10,7 @@ const mapSTP = (state) => {
 
 const mapDTP = dispatch => {
   return {
-    composeMadlib: data => dispatch(composeMadlib(data))
+    action: data => dispatch(composeMadlib(data))
   };
 };
 
