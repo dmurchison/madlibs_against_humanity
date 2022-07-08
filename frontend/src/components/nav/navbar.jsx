@@ -11,25 +11,28 @@ class NavBar extends React.Component {
 
   logoutUser(e) {
       e.preventDefault();
-      this.props.logout();
+      this.props.logout()
+        .then( () => this.props.history.push('/'))
   }
 
   // Selectively render links dependent on whether the user is logged in
   getLinks() {
       if (this.props.loggedIn) {
         return (
-            <div>
-                <Link to={'/madlibs'}>All Madlibs</Link>
-                <Link to={'/profile'}>Profile</Link>
-                <Link to={'/madlibs/new'}>Create a Madlib</Link>
-                <button onClick={this.logoutUser}>Logout</button>
-            </div>
+            <>
+              <div className='navbar-links-container'>
+                  <Link className='navbar-users-madlibs' to={'/madlibs'}>{this.props.currentUser}'s' Madlibs</Link>
+                  <Link className='navbar-users-profile' to={'/profile'}>{this.props.currentUser}</Link>
+                  <Link className='navbar-create-madlib' to={'/madlibs/new'}>Create a Madlib</Link>
+              </div>
+              <button className='navbar-logout' onClick={this.logoutUser}>Logout</button>
+            </>
         );
       } else {
         return (
-            <div>
-                <Link to={'/signup'}><button>Signup</button></Link>
-                <Link to={'/login'}><button>Login</button></Link>
+            <div className='navbar-signup-login-btns'>
+                <Link to={'/signup'}><button className='navbar-signup'>Signup</button></Link>
+                <Link to={'/login'}><button className='navbar-login'>Login</button></Link>
             </div>
         );
       }
@@ -38,8 +41,8 @@ class NavBar extends React.Component {
   render() {
       return (
         <header className='navbar-container'>
-            <Link to='/'>
-              <h1 className='navbar-text'>MadLibs</h1>
+            <Link className='navbar-text' to='/'>
+              <h1>MadLibs</h1>
             </Link>
             <span className='navbar-buttons'>{ this.getLinks() }</span>
         </header>
