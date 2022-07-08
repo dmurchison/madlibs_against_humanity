@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
-// import { composeMadlib } from '../../actions/madlib_actions.js';
+import { fetchMadlib } from '../../actions/madlib_actions.js';
 import MadlibPlay from './madlib_play';
 
 const mapSTP = (state,ownProps) => {
   return {
-    currentMadlib: state.madlibs[ownProps.match.params.id]
+    currentMadlib: state.entities.madlibs[ownProps.match.params.id]
   };
 };
 
-export default connect(mapSTP)(MadlibPlay);
+const mapDTP = (dispatch, ownProps) => ({
+  fetchMadlib: () => dispatch(fetchMadlib(ownProps.match.params.id))
+});
+
+export default connect(mapSTP,mapDTP)(MadlibPlay);

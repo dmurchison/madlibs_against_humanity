@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     Madlib.deleteOne({_id: req.params.id})
-    .then(json({message:"Deleted!"})) // not displaying. displays err message instead
+    .then(res.json({message:"Deleted!"})) // not displaying. displays err message instead
         .catch(err =>
             res.status(404).json({ nomadlibfound: 'No madlib found with that ID' })
         );
@@ -64,7 +64,7 @@ router.post('/',
         return res.status(400).json(errors);
       }
       
-      const keywords = ['noun','adjective','verb','adverb']
+      const keywords = ['noun','nouns','adjective','verb','adverb']
       const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
 
       const newMadlib = new Madlib({

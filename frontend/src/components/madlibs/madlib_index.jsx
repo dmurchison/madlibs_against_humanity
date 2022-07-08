@@ -8,7 +8,9 @@ class MadlibIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMadlibs();
+    if (!this.props.madlibs.length){
+      this.props.fetchMadlibs();
+    }
   }
 
   render() {
