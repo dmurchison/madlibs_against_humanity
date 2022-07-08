@@ -9,6 +9,12 @@ const passport = require('passport');
 
 const app = express();
 
+// Mongo DB
+const db = require('./config/keys').mongoURI;
+mongoose
+.connect(db, { useNewUrlParser: true })
+.then(() => console.log("Connected to MongoDB successfully"))
+.catch(err => console.log(err));
 
 const path = require('path');
 if (process.env.NODE_ENV === 'production') {
@@ -18,23 +24,14 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-
-// Mongo DB
-const db = require('./config/keys').mongoURI;
-mongoose
-.connect(db, { useNewUrlParser: true })
-.then(() => console.log("Connected to MongoDB successfully"))
-.catch(err => console.log(err));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
-
-// app.get("/", (req, res) => {
-//   res.send("React Broke!");
-// });
+app.get("/", (req, res) => {
+  res.send("React Broke!");
+});
 
 // Routes
 app.use("/api/users", users);

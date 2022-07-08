@@ -11,7 +11,7 @@ const Footer = () => {
       </div>
       <div className='footer-github-link'>
         <a href='https://github.com/dmurchison/'>
-          <FontAwesomeIcon className='footer-github-icon' icon={faGithub} />
+          <FontAwesomeIcon className='footer-github-icon' icon={faGithub} size='2x' />
         </a>
       </div>
     </footer>
