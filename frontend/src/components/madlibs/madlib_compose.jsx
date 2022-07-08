@@ -6,7 +6,8 @@ class MadlibCompose extends React.Component {
       super(props);
       this.state = {
         title: '',
-        body: ''
+        body: '',
+        errors: ''
       }
       
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,17 +25,18 @@ class MadlibCompose extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // if (!this.state.body.split(' ').includes(/noun|nouns|adjective|verb|adverb/i)){
+    //   this.setState({errors: 'Madlib must contain blanks'})
+    //   return null
+    // }
     let madlib = {
       id: this.props.currentUser,
       _id: this.props.currentMadlib ? this.props.currentMadlib._id : null,
       title: this.state.title,
       body: this.state.body
     };
-    let {action, formType} = this.props;
-    action(madlib);
-    if (formType === 'Create'){
-      this.setState({title: '',body: ''})  // redirect to user page instead
-    }    
+    this.props.action(madlib)
+      .then(this.props.history.push('/')) 
   }
 
   update(fld) {

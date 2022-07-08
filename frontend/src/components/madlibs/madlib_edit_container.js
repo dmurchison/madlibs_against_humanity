@@ -17,4 +17,4 @@ const mapDTP = (dispatch,ownProps) => {
   };
 };
 
-export default connect(mapSTP, mapDTP)(MadlibCompose);
+export default connect(mapSTP,mapDTP)(MadlibCompose);
