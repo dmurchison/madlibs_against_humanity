@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import '../../stylesheets/madlib_index.scss';
 
 class MadlibIndex extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
     if (!this.props.madlibs.length){

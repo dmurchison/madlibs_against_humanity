@@ -6,7 +6,7 @@ import { RECEIVE_MADLIB, RECEIVE_MADLIBS, REMOVE_MADLIB } from '../actions/madli
     switch(action.type) {
       case RECEIVE_MADLIBS:
         action.madlibs.map( madlib => {
-          newState[madlib._id] = madlib
+          return newState[madlib._id] = madlib
         });
         return newState;
       case RECEIVE_MADLIB:
