@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 import '../../stylesheets/navbar.scss'
 
 class NavBar extends React.Component {
@@ -11,8 +12,9 @@ class NavBar extends React.Component {
 
   logoutUser(e) {
       e.preventDefault();
-      this.props.logout()
-        .then( () => this.props.history.push('/'))
+      this.props.logout();
+      window.location.reload(false);
+      // this.props.history.push('/');
   }
 
   // Selectively render links dependent on whether the user is logged in
