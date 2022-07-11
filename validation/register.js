@@ -1,7 +1,6 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
 
-// Create a function to reference all validations in the registration form page.
 module.exports = function validateRegisterInput(data) {
   let errors = {};
 

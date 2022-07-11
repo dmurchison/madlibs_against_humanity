@@ -49,6 +49,7 @@ class MadlibPlay extends React.Component {
   }
 
   render() {
+    if (!this.props.currentMadlib) return null; // This is called null catching, it allows the componentDidMount function to recapture the original state of the app.
     let last = this.state.bIndex === this.props.currentMadlib.blanks.length
     return this.props.currentMadlib ? ( last ? (
       <div>
