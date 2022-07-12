@@ -3,11 +3,25 @@ import '../../stylesheets/footer.scss';
 
 const Footer = () => {
   return (
-    <footer className='footer-container'>
+    <div className='footer-container'>
+      <h4 className='dev-team'>Developer Team:</h4>
+
       <div className='footer-dev-info'>
-        Developer Information:
+
+        <div className='Duncans-dev-info'>
+          <h5>Duncan Murchison</h5>
+        </div>
+
+        <div className='Narans-dev-info'>
+          <h5>Naran Ivanchukov</h5>
+        </div>
+
+        <div className='Mikes-dev-info'>
+          <h5>Mike Hollander</h5>
+        </div>
+
       </div>
-    </footer>
+    </div>
   )
 }
 

@@ -2,7 +2,7 @@
 .footer-container {
   position: fixed;
   left: 0;
-  height: 5rem;
+  height: 6rem;
   bottom: 0;
   width: 100%;
   background: radial-gradient(circle at bottom, rgb(0, 0, 0) 0, rgb(255, 255, 255) 100%);
@@ -10,7 +10,19 @@
   text-align: center;
 }
 
+.Narans-dev-info {
+  color: white;
+}
+
+.dev-team {
+  color: red;
+  margin-top: .05rem;
+  display: flex;
+  justify-content: center;
+}
 .footer-dev-info {
-  display: inline-block;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
   padding: 0px 5px;
 }
