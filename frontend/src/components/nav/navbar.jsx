@@ -23,7 +23,7 @@ class NavBar extends React.Component {
         return (
           <>
             <div className='navbar-links'>
-              <Link className='users-madlibs' to={'/madlibs'}>{this.props.currentUser}'s' Madlibs</Link>
+              <Link className='users-madlibs' to={`/users/${this.props.currentUser.id}/madlibs`}>{this.props.currentUser.handle}'s' Madlibs</Link>
               <Link className='create-madlib' to={'/madlibs/new'}>Create a Madlib</Link>
             </div>
             <button className='logout' onClick={this.logoutUser}>Logout</button>

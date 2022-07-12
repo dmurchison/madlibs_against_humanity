@@ -9,6 +9,7 @@ import Footer from './nav/footer';
 import NavBarContainer from './nav/navbar_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
+import UserMadlibIndex from './madlibs/user_madlib_index_container';
 import MadlibIndexContainer from './madlibs/madlib_index_container';
 import MadlibShowContainer from './madlibs/madlib_show_container';
 import ComposeContainer from './madlibs/madlib_compose_container';
@@ -22,6 +23,7 @@ const App = () => (
         <Route exact path="/" component={MadlibIndexContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        <ProtectedRoute exact path="/users/:id/madlibs" component={UserMadlibIndex} />
         <ProtectedRoute exact path="/madlibs/new" component={ComposeContainer} />
         <ProtectedRoute exact path="/madlibs/:id/edit" component={EditContainer} />
         <Route exact path="/madlibs/:id" component={MadlibShowContainer} />
