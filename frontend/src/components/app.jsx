@@ -11,9 +11,9 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import MadlibIndexContainer from './madlibs/madlib_index_container';
 import MadlibShowContainer from './madlibs/madlib_show_container';
-import ComposeContainer from './madlibs/madlib_compose_container'//////
-import EditContainer from './madlibs/madlib_edit_container'//////
-import PlayContainer from './madlibs/madlib_play_container'//////
+import ComposeContainer from './madlibs/madlib_compose_container';
+import EditContainer from './madlibs/madlib_edit_container';
+import PlayContainer from './madlibs/madlib_play_container';
 
 const App = () => (
   <div>
