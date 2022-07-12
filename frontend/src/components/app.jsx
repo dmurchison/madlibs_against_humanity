@@ -19,13 +19,13 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
-        <ProtectedRoute exact path="/madlibs/new" component={ComposeContainer} />
-        <Route exact path="/madlibs/:id" component={MadlibShowContainer} />
-        <ProtectedRoute exact path="/madlibs/:id/edit" component={EditContainer} />
-        <Route exact path="/madlibs/:id/play" component={PlayContainer} />
         <Route exact path="/" component={MadlibIndexContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        <ProtectedRoute exact path="/madlibs/new" component={ComposeContainer} />
+        <ProtectedRoute exact path="/madlibs/:id/edit" component={EditContainer} />
+        <Route exact path="/madlibs/:id" component={MadlibShowContainer} />
+        <Route exact path="/madlibs/:id/play" component={PlayContainer} />
     </Switch>
     <Footer />
   </div>
