@@ -5,6 +5,8 @@ class UsersMadlibIndex extends React.Component {
   constructor(props){
     super(props)
     this.state = [];
+
+    this.getMadlibTitles = this.getMadlibTitles.bind(this);
   }  
 
   componentDidMount(){
@@ -12,20 +14,28 @@ class UsersMadlibIndex extends React.Component {
     this.props.fetchUserMadlibs();
   }
 
+  getMadlibTitles() {
+    return (
+      this.props.madlibs.map( (madlib, i) => {
+        return (
+          <Link to={`/madlibs/${madlib._id}`}>
+            <div className="madlib-title-link">
+              {madlib.title}
+            </div>
+          </Link>
+        )
+      })
+    )
+  }
+
 
   render() {
     return (
-      <div className="user-madlib-index">
-          {
-            this.props.madlibs.map( (madlib, i) => {
-
-              return (
-                <Link to={`/madlibs/${madlib._id}`}>
-                    {madlib.title}
-                </Link>
-              )
-            })
-          }
+      <div className="madlibs-index-container">
+        <h2 className="madlib-index-header">{this.props.currentUser.handle}'s Madlibs!</h2>
+          <div className="madlibs-title-container">
+            {this.getMadlibTitles()}
+          </div>
       </div>
     )
   }

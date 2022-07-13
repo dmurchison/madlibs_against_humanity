@@ -17,7 +17,7 @@ import EditContainer from './madlibs/madlib_edit_container';
 import PlayContainer from './madlibs/madlib_play_container';
 
 const App = () => (
-  <div>
+  <div className='main'>
     <NavBarContainer />
     <Switch>
         <Route exact path="/" component={MadlibIndexContainer} />

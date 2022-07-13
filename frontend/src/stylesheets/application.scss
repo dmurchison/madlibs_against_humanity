@@ -1,12 +1,13 @@
-* {
-  box-sizing: border-box;
-}
 
-.body {
-  background: radial-gradient(circle at top, rgb(255, 255, 255) 0, rgb(255, 0, 0) 100%);
+body {
   height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 

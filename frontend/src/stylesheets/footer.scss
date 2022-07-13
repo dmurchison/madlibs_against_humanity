@@ -1,11 +1,14 @@
 // Footer
 .footer-container {
-  position: fixed;
+  padding: 20px;
+  margin-top: 20px;
   height: 8rem;
   bottom: 0;
   width: 100%;
   background: radial-gradient(circle at bottom, rgb(0, 0, 0) 0, rgb(255, 255, 255) 100%);
   color: black;
+  margin-bottom: 0;
+  position: fixed;
 }
 
 .dev-team {

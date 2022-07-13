@@ -1,7 +1,50 @@
-.madlib_index-container {
-  padding-top: 10rem;
-  text-align: center;
-  align-items: center;
+.madlibs-index-container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 15rem;
+}
+
+.madlib-index-header {
+  font-size: xx-large;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: black;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+.madlibs-title-container {
+  font-size: x-large;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.madlib-title-link {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 5px;
+  border-radius: 10px;
+  border-color: aqua;
+  border-style: double;
+  background-color: blue;
+  color: white;
+  padding: 20px;
+  text-decoration: underline;
+  width: 500px;
+}
+.madlib-title-link:hover {
+  transform: scale(1.15);
+  background-color: aliceblue;
+  color: darkblue;
+}
+
+.madlib-info {
+  font-size: small;
+  float: right;
+  flex-direction: column;
+  margin-left: 300px;
 }
