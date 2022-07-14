@@ -52,7 +52,7 @@ router.patch('/:id', (req, res) => {
     }
     Madlib.findOneAndUpdate(query, editData, (err, doc) => {
         if (err) return res.status(404).json(errors);
-        return res.json('Succesfully saved.');
+        return res.json(doc);
     });
 });
 

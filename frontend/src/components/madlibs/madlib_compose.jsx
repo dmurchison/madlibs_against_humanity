@@ -36,7 +36,7 @@ class MadlibCompose extends React.Component {
       body: this.state.body
     };
     this.props.action(madlib)
-      .then(this.props.history.push('/')) 
+      .then(() =>this.props.history.push(`/madlibs/${madlib._id}`)) 
   }
 
   update(fld) {
@@ -46,6 +46,7 @@ class MadlibCompose extends React.Component {
   }
 
   render() {
+    debugger;
     let { formType } = this.props;
     return (
         <div>
