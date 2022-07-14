@@ -5,6 +5,7 @@ import MadlibCompose from './madlib_compose';
 const mapSTP = (state,ownProps) => {
   return {
     currentMadlib: state.entities.madlibs[ownProps.match.params.id],
+    errors: Object.values(state.errors.madlibs),
     currentUser: state.session.user.id,
     formType: 'Edit'
   };

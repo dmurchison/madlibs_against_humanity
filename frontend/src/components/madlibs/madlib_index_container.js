@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchMadlibs: () => dispatch(fetchMadlibs())
+  fetchMadlibs: () => dispatch(fetchMadlibs())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MadlibIndex);

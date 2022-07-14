@@ -31,7 +31,6 @@ class MadlibIndex extends React.Component {
 
 
   render() {
-    debugger;
     if (!this.props.madlibs) return null;
     return (
       <div className='madlibs-index-container'>

@@ -8,6 +8,7 @@ const passport = require('passport');
 const Madlib = require('../../models/Madlib');
 const validateMadlibInput = require('../../validation/madlibs');
 
+
 router.get('/', (req, res) => {
     Madlib.find()
         .populate('user')
@@ -17,28 +18,27 @@ router.get('/', (req, res) => {
 });
 
 router.get('/user/:user_id', (req, res) => {
-    Madlib.find({user: req.params.user_id})
-        .then(madlibs => res.json(madlibs))
-        .catch(err =>
-            res.status(404).json({ nomadlibsfound: 'No madlibs found from that user' }
-        )
+  Madlib.find({user: req.params.user_id})
+    .then(madlibs => res.json(madlibs))
+    .catch(err =>
+      res.status(404).json({ nomadlibsfound: 'No madlibs found from that user' })
     );
 });
 
 router.get('/:id', (req, res) => {
-    Madlib.findById(req.params.id)
-        .then(madlib => res.json(madlib))
-        .catch(err =>
-            res.status(404).json({ nomadlibfound: 'No madlib found with that ID' })
-        );
+  Madlib.findById(req.params.id)
+    .then(madlib => res.json(madlib))
+    .catch(err =>
+      res.status(404).json({ nomadlibfound: 'No madlib found with that ID' })
+    );
 });
 
 router.delete('/:id', (req, res) => {
-    Madlib.deleteOne({_id: req.params.id})
+  Madlib.deleteOne({_id: req.params.id})
     .then(res.json({message:"Deleted!"})) // not displaying. displays err message instead
-        .catch(err =>
-            res.status(404).json({ nomadlibfound: 'No madlib found with that ID' })
-        );
+    .catch(err =>
+      res.status(404).json({ nomadlibfound: 'No madlib found with that ID' })
+    );
 });
 
 router.patch('/:id', (req, res) => {
@@ -57,26 +57,26 @@ router.patch('/:id', (req, res) => {
 });
 
 router.post('/',
-    passport.authenticate('jwt', { session: false }),
-    (req, res) => {
-      const { errors, isValid } = validateMadlibInput(req.body);
-        
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateMadlibInput(req.body);
       
-      const keywords = ['noun','nouns','adjective','verb','adverb']
-      const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
-
-      const newMadlib = new Madlib({
-        body: req.body.body,
-        user: req.user.id,
-        title: req.body.title,
-        blanks: req.body.body.split(' ').filter(word => (keywords.includes(word.replace(punctuation, '').toLowerCase())))
-      });
-  
-      newMadlib.save().then(madlib => res.json(madlib));
+    if (!isValid) {
+      return res.status(400).json(errors);
     }
+    
+    const keywords = ['noun','nouns','adjective','verb','adverb']
+    const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+
+    const newMadlib = new Madlib({
+      body: req.body.body,
+      user: req.user.id,
+      title: req.body.title,
+      blanks: req.body.body.split(' ').filter(word => (keywords.includes(word.replace(punctuation, '').toLowerCase())))
+    });
+
+    newMadlib.save().then(madlib => res.json(madlib));
+  }
 );
 
 
