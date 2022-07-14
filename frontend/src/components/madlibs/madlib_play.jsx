@@ -1,5 +1,6 @@
 import React from 'react';
 import MadlibBox from './madlib_box';
+import { Link } from 'react-router-dom';
 
 class MadlibPlay extends React.Component {
   constructor(props) {
@@ -49,8 +50,7 @@ class MadlibPlay extends React.Component {
   }
 
   render() {
-    let last = this.state.bIndex === this.props.currentMadlib.blanks.length
-    return this.props.currentMadlib ? ( last ? (
+    return this.props.currentMadlib ? ( this.state.bIndex === this.props.currentMadlib.blanks.length ? (
       <div>
         <form onSubmit={this.handleSubmit}>
           {
@@ -62,6 +62,9 @@ class MadlibPlay extends React.Component {
           }
           <button type="submit">Finish</button>
           <button onClick={this.handleReplay} >replay</button>
+          <Link to={`/madlibs/${this.props.currentMadlib._id}`}>
+            <button>Quit</button>
+          </Link>
         </form>
         <MadlibBox title={this.props.currentMadlib.title} body={this.state.text} />
       </div>
@@ -75,6 +78,9 @@ class MadlibPlay extends React.Component {
                   />
                 </div>
               <button type="submit">fill in</button>
+          <Link to={`/madlibs/${this.props.currentMadlib._id}`}>
+            <button>quit</button>
+          </Link>
           </form>
           <MadlibBox title={this.props.currentMadlib.title} body={this.state.text} />
       </div>
