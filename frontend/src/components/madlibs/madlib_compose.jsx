@@ -41,7 +41,7 @@ class MadlibCompose extends React.Component {
       body: this.state.body
     };
     this.props.action(madlib)
-      // .then(this.props.history.push('/'));
+      .then(this.props.history.push('/'));
   };
 
   update(fld) {
