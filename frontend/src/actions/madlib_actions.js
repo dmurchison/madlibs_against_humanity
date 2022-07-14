@@ -1,11 +1,17 @@
 import { getMadlibs, getMadlib, getUserMadlibs, writeMadlib, editMadlib, dumpMadlib } from '../util/madlib_api_util';
 
 export const RECEIVE_MADLIB = "RECEIVE_MADLIB";
-export const RECEIVE_MADLIBS = "RECEIVE_MADLIBS";
+export const RECEIVE_ALL_MADLIBS = "RECEIVE_ALL_MADLIBS";
+export const RECEIVE_USER_MADLIBS = "RECEIVE_USER_MADLIBS";
 export const REMOVE_MADLIB = "REMOVE_MADLIB";
 
-const receiveMadlibs = response => ({
-  type: RECEIVE_MADLIBS,
+const receiveAllMadlibs = response => ({
+  type: RECEIVE_ALL_MADLIBS,
+  madlibs: response.data
+});
+
+const receiveUserMadlibs = response => ({
+  type: RECEIVE_USER_MADLIBS,
   madlibs: response.data
 });
 
@@ -23,7 +29,7 @@ const removeMadlib = madlibId => ({
 
 export const fetchMadlibs = () => dispatch => (
   getMadlibs()
-    .then( response => dispatch(receiveMadlibs(response)))
+    .then( response => dispatch(receiveAllMadlibs(response)))
     .catch(err => console.log(err))
 );
 
@@ -35,7 +41,7 @@ export const fetchMadlib = madlibId => dispatch => (
 
 export const fetchUserMadlibs = id => dispatch => (
   getUserMadlibs(id)
-    .then( response => dispatch(receiveMadlibs(response)))
+    .then( response => dispatch(receiveUserMadlibs(response)))
     .catch(err => console.log(err))
 );
 

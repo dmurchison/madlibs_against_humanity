@@ -10,6 +10,7 @@ const validateMadlibInput = require('../../validation/madlibs');
 
 router.get('/', (req, res) => {
     Madlib.find()
+        .populate('user')
         .sort({ date: -1 })// sort by date, newest first
         .then(madlibs => res.json(madlibs))
         .catch(err => res.status(404).json({ nomadlibsfound: 'No madlibs found' }));

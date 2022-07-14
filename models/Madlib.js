@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const MadlibSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'User'
   },
   title: {
     type: String,

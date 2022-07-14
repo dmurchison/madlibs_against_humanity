@@ -4,18 +4,16 @@ import { Link } from 'react-router-dom';
 class UsersMadlibIndex extends React.Component {
   constructor(props){
     super(props)
-    this.state = [];
 
     this.getMadlibTitles = this.getMadlibTitles.bind(this);
   }  
 
   componentDidMount(){
-    this.setState();
     this.props.fetchUserMadlibs();
   }
 
   getMadlibTitles() {
-    return (
+    return this.props.madlibs[0] ? (
       this.props.madlibs.map( (madlib, i) => {
         return (
           <Link to={`/madlibs/${madlib._id}`}>
@@ -25,6 +23,8 @@ class UsersMadlibIndex extends React.Component {
           </Link>
         )
       })
+    ) : (
+      <div>No madlibs yet!</div>
     )
   }
 
