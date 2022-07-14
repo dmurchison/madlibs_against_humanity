@@ -16,15 +16,14 @@ class UsersMadlibIndex extends React.Component {
 
   getMadlibTitles() {
     return (
-      this.props.madlibs.map( (madlib, i) => {
-        return (
-          <Link to={`/madlibs/${madlib._id}`}>
+      this.props.madlibs.map( (madlib, i) => (
+          <Link key={`madlib-title-${i}`} to={`/madlibs/${madlib._id}`}>
             <div className="madlib-title-link">
               {madlib.title}
             </div>
           </Link>
         )
-      })
+      )
     )
   }
 
