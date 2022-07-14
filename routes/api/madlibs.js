@@ -64,14 +64,15 @@ router.post('/',
         return res.status(400).json(errors);
       }
       
-      const keywords = ['noun','nouns','adjective','verb','adverb']
-      const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+      const keywords = ['noun','adjective','verb','adverb']
+    //   const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
 
       const newMadlib = new Madlib({
         body: req.body.body,
         user: req.user.id,
         title: req.body.title,
-        blanks: req.body.body.split(' ').filter(word => (keywords.includes(word.replace(punctuation, '').toLowerCase())))
+        // blanks: req.body.body.split(' ').filter(word => (keywords.includes(word.replace(punctuation, '').toLowerCase())))
+        blanks: req.body.body.split(' ').filter(word => keywords.some(keyword=>word.includes(keyword)))
       });
   
       newMadlib.save().then(madlib => res.json(madlib));

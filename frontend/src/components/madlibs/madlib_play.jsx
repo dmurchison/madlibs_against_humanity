@@ -11,7 +11,7 @@ class MadlibPlay extends React.Component {
           text: "",
           bIndex: 0
       }
-
+      
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleFillin = this.handleFillin.bind(this);
       this.handleReplay = this.handleReplay.bind(this);
@@ -25,7 +25,7 @@ class MadlibPlay extends React.Component {
     e.preventDefault();
     let fillIns = this.state.fillIns.slice();
     let finished = this.props.currentMadlib.body;
-    while(fillIns.length){finished = finished.replace(/noun|nouns|adjective|verb|adverb/i, '{'+(fillIns.shift()||'')+'}')}
+    while(fillIns.length){finished = finished.replace(/noun|adjective|verb|adverb/i, '{'+(fillIns.shift()||'')+'}')}
     this.setState({text: finished})
   }
   
@@ -69,7 +69,10 @@ class MadlibPlay extends React.Component {
       <div>
           <form onSubmit={this.handleFillin}>
                 <div>
-                  <input type="text" onChange={this.update()} value={this.state.fillIns[this.state.bIndex]||''} placeholder={this.props.currentMadlib.blanks[this.state.bIndex]}/>
+                  <input type="text" onChange={this.update()} 
+                  value={this.state.fillIns[this.state.bIndex]||''} 
+                  placeholder={this.props.keywords.find(word => this.props.currentMadlib.blanks[this.state.bIndex].includes(word))}
+                  />
                 </div>
               <button type="submit">fill in</button>
           </form>
