@@ -3,6 +3,7 @@ import { getMadlibs, getMadlib, getUserMadlibs, writeMadlib, editMadlib, dumpMad
 export const RECEIVE_MADLIB = "RECEIVE_MADLIB";
 export const RECEIVE_MADLIBS = "RECEIVE_MADLIBS";
 export const REMOVE_MADLIB = "REMOVE_MADLIB";
+export const RECEIVE_MADLIB_ERRORS = "RECEIVE_MADLIB_ERRORS";
 
 const receiveMadlibs = response => ({
   type: RECEIVE_MADLIBS,
@@ -19,6 +20,10 @@ const removeMadlib = madlibId => ({
   madlibId
 })
 
+const receiveMadlibErrors = errors => ({
+  type: RECEIVE_MADLIB_ERRORS,
+  errors
+})
 
 
 export const fetchMadlibs = () => dispatch => (
