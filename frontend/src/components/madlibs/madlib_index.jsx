@@ -39,37 +39,11 @@ class MadlibIndex extends React.Component {
         <div className='madlibs-title-container'>
           <div className='madlibs-index-titles'>
             {this.getMadlibLinks()}
-            <div className='madlib-info'>
-              <p>Creator:</p>
-              <p>Plays:</p>
-            </div>
           </div>
         </div>
       </div>
     )
   }
-
-
-
-  // render() {
-  //   return (this.props.madlibs !== []) ? (
-  //     <div className='madlib_index-container'>
-  //       <h2 className='all madlibs'>All Madlibs</h2>
-  //       <div className='madlib_index-title-container'>
-  //         {
-  //           this.props.madlibs.map( (madlib, i) => (
-  //             <Link key={`madlib-link-${i}`} to={`madlibs/${madlib._id}`}>
-  //               <span className='madlib_index-title' key={`madlib-${i}`}>{madlib.title}</span>
-  //             </Link>            
-  //           ))
-  //         }
-  //       </div>
-  //     </div>
-  //   ) : (
-  //     null
-  //   );
-  // }
-
 };
 
 export default MadlibIndex;

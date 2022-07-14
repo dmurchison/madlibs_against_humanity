@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../stylesheets/login.scss';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -37,11 +38,11 @@ class LoginForm extends React.Component {
     return(
       <ul>
         {
-            this.props.errors.map((error, i) => (
-                <li key={`error-${i}`}>
-                    { error }
-                </li>
-            ))
+          this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              { error }
+            </li>
+          ))
         }
       </ul>
     );
@@ -49,25 +50,28 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
+      <div className='login-form-container'>
+        <form className='login-form' onSubmit={this.handleSubmit}>
+          <h3 className='login-here'>Login Here!</h3>
+          <div className='login-form-email'>
             <input type="text"
               value={this.state.email}
               onChange={this.update('email')}
               placeholder="Email"
             />
-            
+          </div>
+
+          <div className='login-form-password'>
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
               placeholder="Password"
             />
-
-            <button type='submit' >Submit</button>
-            
-            {this.renderErrors()}
           </div>
+
+            <button className='login-button' type='submit'>Log In</button>
+            {this.renderErrors()}
+
         </form>
       </div>
     );
