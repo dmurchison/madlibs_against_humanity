@@ -4,6 +4,7 @@ import * as MadlibAPIUtil from '../util/madlib_api_util';
 export const RECEIVE_MADLIB = "RECEIVE_MADLIB";
 export const RECEIVE_ALL_MADLIBS = "RECEIVE_ALL_MADLIBS";
 export const RECEIVE_USER_MADLIBS = "RECEIVE_USER_MADLIBS";
+export const CREATE_MADLIB = "CREATE_MADLIB";
 export const REMOVE_MADLIB = "REMOVE_MADLIB";
 export const RECEIVE_MADLIB_ERRORS = "RECEIVE_MADLIB_ERRORS";
 export const REMOVE_MADLIB_ERRORS = "REMOVE_MADLIB_ERRORS";
@@ -16,6 +17,11 @@ const receiveAllMadlibs = response => ({
 const receiveUserMadlibs = response => ({
   type: RECEIVE_USER_MADLIBS,
   madlibs: response.data
+});
+
+export const createMadlib = response => ({
+  type: CREATE_MADLIB,
+  madlib: response.data
 });
 
 export const receiveMadlib = response => ({
@@ -58,7 +64,7 @@ export const fetchUserMadlibs = id => dispatch => (
 
 export const composeMadlib = data => dispatch => (
   MadlibAPIUtil.writeMadlib(data)
-    .then( response => dispatch(receiveMadlib(response)))
+    .then( response => dispatch(createMadlib(response)))
     .catch(err => dispatch(receiveMadlibErrors(err.response.data)))
 );
 
