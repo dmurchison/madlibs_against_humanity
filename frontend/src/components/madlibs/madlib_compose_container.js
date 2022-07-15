@@ -5,7 +5,7 @@ import MadlibCompose from './madlib_compose';
 
 const mapSTP = (state) => ({
   currentUser: state.session.user.id,
-  errors: Object.values(state.errors.madlibs),
+  errors: state.errors.madlibs,
   formType: 'Create'
 });
 

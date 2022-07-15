@@ -19,8 +19,9 @@ export const receiveErrors = errors => ({
 });
 
 // When our user is logged out, we will dispatch this action to set isAuthenticated to false
-export const logoutUser = () => ({
-  type: RECEIVE_USER_LOGOUT
+export const logoutUser = (currentUser) => ({
+  type: RECEIVE_USER_LOGOUT,
+  currentUser
 });
 
 // Upon signup, dispatch the approporiate action depending on which type of response we receieve from the backend
@@ -52,8 +53,8 @@ export const login = user => dispatch => (
 )
 
 // We wrote this one earlier
-export const logout = () => dispatch => {
+export const logout = (currentUser) => dispatch => {
   localStorage.removeItem('jwtToken')
   SessionAPIUtil.setAuthToken(false)
-  dispatch(logoutUser())
+  dispatch(logoutUser(currentUser))
 };

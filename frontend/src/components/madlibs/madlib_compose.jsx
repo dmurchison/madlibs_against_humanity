@@ -8,12 +8,12 @@ class MadlibCompose extends React.Component {
     this.state = {
       title: '',
       body: '',
-      errors: ''
+      errors: false
     }
     
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-  }; 
+  };
 
   componentDidMount() {
     if (this.props.formType === 'Edit'){
@@ -23,11 +23,11 @@ class MadlibCompose extends React.Component {
           body: this.props.currentMadlib.body
       }))
     }
-  };
-
-  componentWillUnmount() {
-    this.props.removeMadlibErrors();
   }
+
+  // componentWillUnmount() {
+  //   this.props.removeMadlibErrors();
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -42,28 +42,32 @@ class MadlibCompose extends React.Component {
       body: this.state.body
     };
     this.props.action(madlib)
-      .then(this.props.history.push('/'));
-  };
+      .then( () => {
+        this.props.errors.body ? this.setState({errors: true}) : this.props.history.push('/') 
+      })
+      
+
+  }
 
   update(fld) {
     return e => this.setState({
       [fld]: e.currentTarget.value
     })
-  };
+  }
 
   renderErrors() {
-    return(
+    return (
       <ul>
         {
-          this.props.errors.map((error, i) => (
+          Object.values(this.props.errors).map((error, i) => (
             <li key={`error-${i}`}>
               { error }
             </li>
           ))
         }
       </ul>
-    );
-  };
+    )
+  }
 
   render() {
     let { formType } = this.props;
@@ -80,6 +84,7 @@ class MadlibCompose extends React.Component {
           <button type="submit">{formType}</button>
           {this.renderErrors()}
         </form>
+
 
         <MadlibBox title={this.state.title} body={this.state.body} />
 

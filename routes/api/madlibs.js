@@ -10,10 +10,11 @@ const validateMadlibInput = require('../../validation/madlibs');
 
 
 router.get('/', (req, res) => {
-  Madlib.find()
-    .sort({ date: -1 })// sort by date, newest first
-    .then(madlibs => res.json(madlibs))
-    .catch(err => res.status(404).json({ nomadlibsfound: 'No madlibs found' }));
+    Madlib.find()
+        .populate('user')
+        .sort({ date: -1 })// sort by date, newest first
+        .then(madlibs => res.json(madlibs))
+        .catch(err => res.status(404).json({ nomadlibsfound: 'No madlibs found' }));
 });
 
 router.get('/user/:user_id', (req, res) => {
@@ -53,7 +54,7 @@ router.patch('/:id', (req, res) => {
   
   Madlib.findOneAndUpdate(query, editData, (err, doc) => {
     if (err) return res.status(404).json(errors);
-    return res.json('Succesfully saved.');
+    return res.json(doc);
   });
 });
 
