@@ -17,7 +17,7 @@ class MadlibPlay extends React.Component {
     this.handleFillin = this.handleFillin.bind(this);
     this.handleReplay = this.handleReplay.bind(this);
   } 
-    
+  
   componentDidMount(){
     this.props.fetchMadlib();
   }
@@ -26,8 +26,8 @@ class MadlibPlay extends React.Component {
     e.preventDefault();
     let fillIns = this.state.fillIns.slice();
     let finished = this.props.currentMadlib.body;
-    const nextBlank = /{[^}]*}/;
-    while(fillIns.length){finished = finished.replace(nextBlank, '['+(fillIns.shift()||'')+']')}
+    const nextBlank = /\[[^\]]*\]/;
+    while(fillIns.length){finished = finished.replace(nextBlank, '{'+fillIns.shift()+'}')}
     this.setState({text: finished})
   }
   
@@ -51,7 +51,7 @@ class MadlibPlay extends React.Component {
   }
 
   render() {
-    if (!this.props.currentMadlib) return null; // This is called null catching, it allows the componentDidMount function to recapture the original state of the app.
+    if (!this.props.currentMadlib) return null;
     return this.state.bIndex === this.props.currentMadlib.blanks.length ? (
       <div>
         <form onSubmit={this.handleSubmit}>

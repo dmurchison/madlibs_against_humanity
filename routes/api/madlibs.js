@@ -41,13 +41,16 @@ router.delete('/:id', (req, res) => {
 });
 
 router.patch('/:id', (req, res) => {
+
   const query = {_id: req.params.id}
-  const regexForBlanks = /(?<={).[^}]*/g;
+  const regexForBlanks = /(?<=\[).[^\]]*/g;
+
   const editData = {
     body: req.body.body,
     title: req.body.title,
     blanks: req.body.body.match(regexForBlanks)
   }
+  
   Madlib.findOneAndUpdate(query, editData, (err, doc) => {
     if (err) return res.status(404).json(errors);
     return res.json('Succesfully saved.');
@@ -62,7 +65,7 @@ router.post('/',
       return res.status(400).json(errors);
     }
     
-    const regexForBlanks = /(?<={).[^}]*/g;
+    const regexForBlanks = /(?<=\[).[^\]]*/g;
 
     const newMadlib = new Madlib({
       body: req.body.body,
