@@ -26,7 +26,8 @@ class MadlibPlay extends React.Component {
     e.preventDefault();
     let fillIns = this.state.fillIns.slice();
     let finished = this.props.currentMadlib.body;
-    while(fillIns.length){finished = finished.replace(/noun|adjective|verb|adverb/i, '{'+(fillIns.shift()||'')+'}')}
+    const nextBlank = /{[^}]*}/;
+    while(fillIns.length){finished = finished.replace(nextBlank, '['+(fillIns.shift()||'')+']')}
     this.setState({text: finished})
   }
   
@@ -75,7 +76,7 @@ class MadlibPlay extends React.Component {
           <div>
             <input type="text" onChange={this.update()} 
             value={this.state.fillIns[this.state.bIndex]||''} 
-            placeholder={this.props.keywords.find(word => this.props.currentMadlib.blanks[this.state.bIndex].includes(word))}
+            placeholder={this.props.currentMadlib.blanks[this.state.bIndex]}
             />
           </div>
           <button type="submit">fill in</button>

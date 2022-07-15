@@ -42,13 +42,11 @@ router.delete('/:id', (req, res) => {
 
 router.patch('/:id', (req, res) => {
   const query = {_id: req.params.id}
-  const keywords = ['noun','adjective','verb','adverb']
-  // const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+  const regexForBlanks = /(?<={).[^}]*/g;
   const editData = {
     body: req.body.body,
     title: req.body.title,
-    // blanks: req.body.body.split(' ').filter(word => (keywords.includes(word.replace(punctuation, '').toLowerCase())))
-    blanks: req.body.body.split(' ').filter(word => keywords.some(keyword=>word.includes(keyword)))
+    blanks: req.body.body.match(regexForBlanks)
   }
   Madlib.findOneAndUpdate(query, editData, (err, doc) => {
     if (err) return res.status(404).json(errors);
@@ -63,22 +61,18 @@ router.post('/',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-      
-    const keywords = ['noun','adjective','verb','adverb']
-    //   const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+    
+    const regexForBlanks = /(?<={).[^}]*/g;
 
     const newMadlib = new Madlib({
       body: req.body.body,
       user: req.user.id,
       title: req.body.title,
-      // blanks: req.body.body.split(' ').filter(word => (keywords.includes(word.replace(punctuation, '').toLowerCase())))
-      blanks: req.body.body.split(' ').filter(word => keywords.some(keyword=>word.includes(keyword)))
+      blanks: req.body.body.match(regexForBlanks)
     });
   
     newMadlib.save().then(madlib => res.json(madlib));
   }
 );
-
-
 
 module.exports = router;
