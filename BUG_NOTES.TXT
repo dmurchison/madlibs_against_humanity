@@ -1,0 +1,33 @@
+
+Debugging tips and notes from this build:
+
+
+Bug:
+Styling, error with the footer being stuck and the scroll not working.
+
+Fix:
+Added the following styles to main,
+display: flex; justify-content: space-between; flex-direction: column;
+
+
+
+Bug:
+Errors, errors not getting deleted when leaving the page.
+
+Fix:
+Added the componentWillUnmount() method to the component with the error handling issues.
+
+
+Bug:
+
+
+Fix:
+
+
+
+Bug:
+
+
+Fix:
+
+
