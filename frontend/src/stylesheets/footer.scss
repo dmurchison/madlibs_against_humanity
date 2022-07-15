@@ -1,16 +1,79 @@
 // Footer
 .footer-container {
-  position: fixed;
-  left: 0;
-  height: 5rem;
+  padding: 20px;
+  margin-top: 20px;
+  height: 8rem;
   bottom: 0;
   width: 100%;
   background: radial-gradient(circle at bottom, rgb(0, 0, 0) 0, rgb(255, 255, 255) 100%);
   color: black;
-  text-align: center;
+  margin-bottom: 0;
+  position: fixed;
 }
 
-.footer-dev-info {
-  display: inline-block;
-  padding: 0px 5px;
+.dev-team {
+  font-style: italic;
+  margin-left: 1rem;
+  font-size: large;
+  border-color: white;
+  border: 2px;
+  padding: 2px
+}
+
+.dev-info-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: .5rem;
+  font-style: bold;
+}
+
+.Naran {
+  color: black;
+  border: 5px;
+  border-radius: 2rem;
+  border-color: red;
+  background-color: aqua;
+  border-style: groove;
+  padding: 10px 10px;
+}
+.Duncan{
+  color: black;
+  border: 5px;
+  border-radius: 2rem;
+  border-color: red;
+  background-color: aqua;
+  border-style: groove;
+  padding: 10px 10px;
+}
+.Mike {
+  color: black;
+  border: 5px;
+  border-radius: 2rem;
+  border-color: red;
+  background-color: aqua;
+  border-style: groove;
+  padding: 10px 10px;
+}
+.Naran:hover, .Duncan:hover, .Mike:hover {
+  transform: scale(1.25);
+}
+
+.clickus {
+  font-style: italic;
+  font-size: small;
+  padding-left: 1px;
+  padding-right: 1px;
+  padding-top: 2px;
+}
+
+.dev-links {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 5px;
+}
+.github:hover {
+  transform: scale(1.25);
+}
+.linkedin:hover {
+  transform: scale(1.25);
 }

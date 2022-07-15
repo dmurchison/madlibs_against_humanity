@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
-import {composeMadlib} from '../../actions/madlib_actions.js'
+import {composeMadlib, removeMadlibErrors} from '../../actions/madlib_actions.js'
+
 import MadlibCompose from './madlib_compose';
 
-const mapSTP = (state) => {
-  return {
-    currentUser: state.session.user.id,
-    formType: 'Create'
-  };
-};
+const mapSTP = (state) => ({
+  currentUser: state.session.user.id,
+  errors: Object.values(state.errors.madlibs),
+  formType: 'Create'
+});
 
 const mapDTP = dispatch => {
   return {
-    action: data => dispatch(composeMadlib(data))
+    action: data => dispatch(composeMadlib(data)),
+    removeMadlibErrors: () => dispatch(removeMadlibErrors())
   };
 };
 

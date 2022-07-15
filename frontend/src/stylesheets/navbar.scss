@@ -1,97 +1,95 @@
 // Header
-.navbar-container {
-  left: 0;
-  height: 5rem;
-  top: 0;
-  width: 100%;
-  background: radial-gradient(circle at bottom, rgb(0, 0, 0) 0, rgb(255, 255, 255) 100%);
-  color: rgb(255, 3, 3);
+.header {
+  padding: 80px;
   text-align: center;
-}
-
-.navbar-text {
+  background: radial-gradient(circle at top, rgb(0, 0, 0) 0, rgb(255, 255, 255) 100%);
   color: white;
-  margin-right: auto;
-  margin-top: 2rem;
-  font-size: large;
 }
-.navbar-text:hover {
-  color: red;
+.header h1 {
+  font-size: 40px;
 }
-
-// .navbar-buttons {
-//   padding-left: 2px;
-//   text-align: left;
-//   margin-bottom: 2rem;
-// }
-
-.navbar-logout {
-  background-color: navy;
+.header-h1-link {
   color: white;
-  margin-right: 2rem;
+}
+.header-h1-link:hover {
+  color: aqua;
+}
+
+.navbar-container {
+  overflow: hidden;
+  background-color: black;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+
+.users-madlibs {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+.users-madlibs:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.create-madlib {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+.create-madlib:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.signup {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+.signup:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.login {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+.login:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.logout {
   float: right;
-  top:0;
-  right:0;
-}
-.navbar-logout:hover {
-  background-color: aqua;
+  margin-top: .4rem;
+  margin-right: 3rem;
+  background-color: whitesmoke;
   color: black;
+  border-radius: 5px;
+  padding: 5px;
+  width: 75px;
 }
-
-.navbar-users-madlibs {
-  color: black;
-  font-size: small;
+.logout:hover {
+  opacity: 0.8;
 }
-.navbar-users-madlibs:hover {
-  color: red;
-}
-
-.navbar-users-profile {
-  color: black;
-  font-size: small;
-}
-.navbar-users-profile:hover {
-  color: red;
-}
-
-.navbar-create-madlib {
-  color: black;
-  font-size: small;
-}
-.navbar-create-madlib:hover {
-  color: red;
-}
-
-.navbar-links-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 2rem;
-  float: left;
-  color: black;
-  font-size: small;
-  top: -0.5rem;
-}
-
-.navbar-signup-login-btns {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 2rem;
-  float: left;
-  color: black;
-  font-size: small;
-  top: -0.5rem;
-}
-.navbar-signup:hover {
-  background-color: aqua;
-  color: black;
-}
-.navbar-login:hover {
-  background-color: aqua;
-  color: black;
-}
-
-
-
 

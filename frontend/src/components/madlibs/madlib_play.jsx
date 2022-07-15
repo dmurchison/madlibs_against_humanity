@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 
 class MadlibPlay extends React.Component {
   constructor(props) {
-      super(props);
+    super(props);
 
-      this.state =
-      {
-          fillIns: [],
-          text: "",
-          bIndex: 0
-      }
-      
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleFillin = this.handleFillin.bind(this);
-      this.handleReplay = this.handleReplay.bind(this);
+    this.state =
+    {
+      fillIns: [],
+      text: "",
+      bIndex: 0
+    }
+    
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFillin = this.handleFillin.bind(this);
+    this.handleReplay = this.handleReplay.bind(this);
   } 
     
   componentDidMount(){
@@ -50,7 +50,8 @@ class MadlibPlay extends React.Component {
   }
 
   render() {
-    return this.props.currentMadlib ? ( this.state.bIndex === this.props.currentMadlib.blanks.length ? (
+    if (!this.props.currentMadlib) return null; // This is called null catching, it allows the componentDidMount function to recapture the original state of the app.
+    return this.state.bIndex === this.props.currentMadlib.blanks.length ? (
       <div>
         <form onSubmit={this.handleSubmit}>
           {
@@ -70,21 +71,21 @@ class MadlibPlay extends React.Component {
       </div>
     ) : (
       <div>
-          <form onSubmit={this.handleFillin}>
-                <div>
-                  <input type="text" onChange={this.update()} 
-                  value={this.state.fillIns[this.state.bIndex]||''} 
-                  placeholder={this.props.keywords.find(word => this.props.currentMadlib.blanks[this.state.bIndex].includes(word))}
-                  />
-                </div>
-              <button type="submit">fill in</button>
+        <form onSubmit={this.handleFillin}>
+          <div>
+            <input type="text" onChange={this.update()} 
+            value={this.state.fillIns[this.state.bIndex]||''} 
+            placeholder={this.props.keywords.find(word => this.props.currentMadlib.blanks[this.state.bIndex].includes(word))}
+            />
+          </div>
+          <button type="submit">fill in</button>
           <Link to={`/madlibs/${this.props.currentMadlib._id}`}>
             <button>quit</button>
           </Link>
-          </form>
-          <MadlibBox title={this.props.currentMadlib.title} body={this.state.text} />
+        </form>
+        <MadlibBox title={this.props.currentMadlib.title} body={this.state.text} />
       </div>
-    )) : null
+    )
   }
 }
 

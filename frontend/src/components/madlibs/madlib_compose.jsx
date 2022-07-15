@@ -3,15 +3,17 @@ import MadlibBox from './madlib_box';
 
 class MadlibCompose extends React.Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        title: '',
-        body: '',
-        errors: ''
-      }
-      
-      this.handleSubmit = this.handleSubmit.bind(this);
-  } 
+    debugger
+    super(props);
+    this.state = {
+      title: '',
+      body: '',
+      errors: ''
+    }
+    
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+  }; 
 
   componentDidMount() {
     if (this.props.formType === 'Edit'){
@@ -21,6 +23,10 @@ class MadlibCompose extends React.Component {
           body: this.props.currentMadlib.body
       }))
     }
+  };
+
+  componentWillUnmount() {
+    this.props.removeMadlibErrors();
   }
 
   handleSubmit(e) {
@@ -36,33 +42,49 @@ class MadlibCompose extends React.Component {
       body: this.state.body
     };
     this.props.action(madlib)
-      .then(this.props.history.push('/')) 
-  }
+      .then(this.props.history.push('/'));
+  };
 
   update(fld) {
     return e => this.setState({
       [fld]: e.currentTarget.value
     })
-  }
+  };
+
+  renderErrors() {
+    return(
+      <ul>
+        {
+          this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              { error }
+            </li>
+          ))
+        }
+      </ul>
+    );
+  };
 
   render() {
     let { formType } = this.props;
     return (
-        <div>
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="title"/>
+      <div>
 
-                <textarea
-                    value={this.state.body}
-                    onChange={this.update('body')}
-                    placeholder="Madlib body..."
-                />
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="title"/>
+          <textarea
+            value={this.state.body}
+            onChange={this.update('body')}
+            placeholder="Madlib body..."
+          />
+          <button type="submit">{formType}</button>
+          {this.renderErrors()}
+        </form>
 
-                <button type="submit">{formType}</button>
+        <MadlibBox title={this.state.title} body={this.state.body} />
 
-            </form>
-            <MadlibBox title={this.state.title} body={this.state.body} />
-        </div>
+
+      </div>
     )
   }
 }
