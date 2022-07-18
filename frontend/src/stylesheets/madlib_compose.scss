@@ -2,7 +2,7 @@
 
 .madlib-compose-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   margin-top: 2rem;
   margin-left: 5rem;
   margin-right: 5rem;
@@ -17,16 +17,17 @@
   border-radius: 10px;
   border-color: blue;
   background-color: aqua;
-  padding: 5rem;
-  height: 12rem;
+  padding: 2rem;
+  margin-bottom: 20rem;
+  width: 25rem;
 }
 .madlib-compose-form:hover {
   transform: scale(1.05);
 }
 
-.madlib-compose-textare {
+.madlib-compose-textarea {
   height: 5rem;
-  width: 50px;
+  width: 15rem;
   background-color: black;
   color: red;
 }
@@ -43,11 +44,10 @@
 .madlib-compose-title {
   display: block;
   height: 50px;
-  width: 100%;
   background-color: rgba(255,255,255,0.07);
   border-radius: 3px;
   padding: 0 10px;
-  margin-bottom: 8px;
+  margin-bottom: 1px;
   font-size: 14px;
   font-weight: 300;
   text-align: center;
@@ -67,8 +67,8 @@
   font-size: 15px;
   font-weight: 600;
   border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 10px;
+  cursor: crosshair;
+  // margin-bottom: 10px;
 }
 .madlib-compose-submit-button:hover {
   transform: scale(1.05);
@@ -79,13 +79,13 @@
 // Madlibs Box
 
 .madlib-box-container {
-  width: 25rem;
   border: 5px;
   border-style: groove;
   border-radius: 10px;
   border-color: blue;
   background-color: aqua;
-  margin-left: 8rem;
+  width: 25rem;
+  margin-bottom: 20rem;
 }
 .madlib-box-container:hover {
   transform: scale(1.05);
@@ -95,7 +95,7 @@
   font-size: 25px;
   font-weight: 500;
   line-height: 25px;
-  margin-top: 10px;
+  margin-top: 2rem;
   margin-bottom: 3rem;
   text-align: center;
 }
@@ -103,6 +103,7 @@
 .madlib-box-title {
   display: flex;
   flex-direction: column;
+  text-align: center;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   margin-left: 1.5rem;
@@ -111,6 +112,7 @@
 .madlib-box-body {
   display: flex;
   flex-direction: column;
+  text-align: center;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   margin-left: 1.5rem;

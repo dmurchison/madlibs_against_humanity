@@ -4,7 +4,6 @@ import '../../stylesheets/madlib_compose.scss';
 
 class MadlibCompose extends React.Component {
   constructor(props) {
-    debugger
     super(props);
     this.state = {
       title: '',
