@@ -17,6 +17,8 @@ Errors, errors not getting deleted when leaving the page.
 Fix:
 Added the componentWillUnmount() method to the component with the error handling issues.
 
+Edit: Created a new action, as well as reducer cases, to handle error handling and madlib creation
+
 
 Bug:
 
