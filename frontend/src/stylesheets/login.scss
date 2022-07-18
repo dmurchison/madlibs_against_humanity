@@ -5,6 +5,22 @@
   margin-top: 2rem;
 }
 
+.login-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 5px;
+  border-style: groove;
+  border-radius: 10px;
+  border-color: blue;
+  background-color: aqua;
+  padding: 5rem;
+  height: 10rem;
+}
+.login-form:hover {
+  transform: scale(1.05);
+}
+
 .login-here {
   font-size: 25px;
   font-weight: 500;
@@ -36,23 +52,6 @@
   margin-top: 8px;
   font-size: 14px;
   font-weight: 300;
-}
-
-.login-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  border: 5px;
-  border-style: groove;
-  border-radius: 10px;
-  border-color: blue;
-  background-color: aqua;
-  padding: 5rem;
-  height: 10rem;
-}
-
-.login-form:hover {
-  transform: scale(1.05);
 }
 
 .login-button {

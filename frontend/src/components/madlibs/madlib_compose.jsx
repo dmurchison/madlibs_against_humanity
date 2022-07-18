@@ -1,5 +1,6 @@
 import React from 'react';
 import MadlibBox from './madlib_box';
+import '../../stylesheets/madlib_compose.scss';
 
 class MadlibCompose extends React.Component {
   constructor(props) {
@@ -72,23 +73,34 @@ class MadlibCompose extends React.Component {
   render() {
     let { formType } = this.props;
     return (
-      <div>
+      <div className='madlib-compose-container'>
 
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="title"/>
-          <textarea
-            value={this.state.body}
-            onChange={this.update('body')}
-            placeholder="Madlib body..."
-          />
-          <button type="submit">{formType}</button>
+        <form className='madlib-compose-form' onSubmit={this.handleSubmit}>
+          <h3 className='create-madlib-here'>Create or Edit Madlib Here!</h3>
+          <div className='madlib-compose-title'>
+            <input 
+              type="text"
+              value={this.state.title} 
+              onChange={this.update('title')}
+              placeholder="title"
+            />
+          </div>
+
+          <div className='madlib-compose-body'>
+            <textarea
+              className='madlib-compose-textarea'
+              value={this.state.body}
+              onChange={this.update('body')}
+              placeholder="Madlib body..."
+            />
+          </div>
+
+          <button className='madlib-compose-submit-button' type="submit">{formType}</button>
           {this.renderErrors()}
+
+
         </form>
-
-
-        <MadlibBox title={this.state.title} body={this.state.body} />
-
-
+          <MadlibBox title={this.state.title} body={this.state.body} />
       </div>
     )
   }
