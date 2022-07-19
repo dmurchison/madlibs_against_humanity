@@ -22,20 +22,22 @@ class LoginForm extends React.Component {
     });
   }
 
+  // Clears errors from signup form
+  componentWillUnmount() {
+    this.props.removeSessionErrors();
+  }
+
   // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
-
     const user = {
       email: this.state.email,
       password: this.state.password
     };
-
     this.props.login(user);
   }
 
   handleDemo() {
-
     const demo = {
       email: 'demouser@email.com',
       password: 'password'

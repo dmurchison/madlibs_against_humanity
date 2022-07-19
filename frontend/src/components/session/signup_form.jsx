@@ -21,6 +21,11 @@ class SignupForm extends React.Component {
     });
   }
 
+  // clears errors from login form
+  componentWillUnmount() {
+    this.props.removeSessionErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     let user = {
@@ -29,7 +34,6 @@ class SignupForm extends React.Component {
       password: this.state.password,
       password2: this.state.password2
     };
-
     this.props.signup(user); 
   }
 

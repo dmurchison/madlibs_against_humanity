@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../stylesheets/madlib.scss';
 
 class MadlibBox extends React.Component {
   render() {

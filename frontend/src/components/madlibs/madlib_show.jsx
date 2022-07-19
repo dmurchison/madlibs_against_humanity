@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import '../../stylesheets/madlib_show.scss';
+import '../../stylesheets/madlib.scss';
 
 class MadlibShow extends React.Component{
     constructor(props){
@@ -43,7 +43,6 @@ class MadlibShow extends React.Component{
             <button className="play-button">Play</button>
           </Link>
           {this.madlibAuth()}
-
         </div>
       ) : ( null )
     }

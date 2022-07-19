@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../stylesheets/footer.scss';
+import '../../stylesheets/nav.scss';
 
 const Footer = (props) => {
   return (
     <div className='footer-container'>
-      <h4 className='dev-team'>Developer Team:</h4>
+      {/* <h4 className='dev-team'>Developer Team:</h4> */}
 
       <div className='dev-info-container'>
 
