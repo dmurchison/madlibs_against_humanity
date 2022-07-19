@@ -53,7 +53,7 @@ class MadlibPlay extends React.Component {
   render() {
     if (!this.props.currentMadlib) return null;
     return this.state.bIndex === this.props.currentMadlib.blanks.length ? (
-      <div>
+      <div className='madlib-play-container'>
         <form onSubmit={this.handleSubmit}>
           {
             this.props.currentMadlib.blanks.map( (blank, i) => (
@@ -70,8 +70,10 @@ class MadlibPlay extends React.Component {
         </form>
         <MadlibBox title={this.props.currentMadlib.title} body={this.state.text} />
       </div>
+
     ) : (
-      <div>
+      // 
+      <div className='madlib-play-container'>
         <form onSubmit={this.handleFillin}>
           <div>
             <input type="text" onChange={this.update()} 

@@ -90,12 +90,14 @@ class MadlibCompose extends React.Component {
               className='madlib-compose-textarea'
               value={this.state.body}
               onChange={this.update('body')}
-              placeholder="Madlib body..."
+              placeholder="Example: I am going to the [place] with a lot of [things]. I can't wait to have a [adjective] time!"
             />
           </div>
 
           <button className='madlib-compose-submit-button' type="submit">{formType}</button>
-          {this.renderErrors()}
+          <div className='madlib-compose-errors'>
+            {this.renderErrors()}
+          </div>
 
 
         </form>
