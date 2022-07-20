@@ -10,25 +10,35 @@ class MadlibPlay extends React.Component {
     {
       fillIns: [],
       text: "",
-      bIndex: 0
+      bIndex: 0,
+      inputRating: 0,
+      newAverage: 0,
+      finished: false,
+      rated: false,
     }
     
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFillin = this.handleFillin.bind(this);
     this.handleReplay = this.handleReplay.bind(this);
+    this.updateRating = this.updateRating.bind(this);
+    this.submitRating = this.submitRating.bind(this);
   } 
   
   componentDidMount(){
-    this.props.fetchMadlib();
+    this.props.fetchMadlib()
+    .then(() => this.setState({
+      rated: this.props.currentMadlib.reviewers.includes(this.props.currentUser),
+      newAverage: this.props.currentMadlib.rating
+    }))
   }
   
   handleSubmit(e) {
     e.preventDefault();
     let fillIns = this.state.fillIns.slice();
     let finished = this.props.currentMadlib.body;
-    const nextBlank = /\[[^\]]*\]/;
+    const nextBlank = /\[[^\]]*\]/; // regular expression denoting first found [substring in brackets] (including brackets)
     while(fillIns.length){finished = finished.replace(nextBlank, '{'+fillIns.shift()+'}')}
-    this.setState({text: finished})
+    this.setState({text: finished,finished: true})
   }
   
   handleFillin(e) {
@@ -41,6 +51,32 @@ class MadlibPlay extends React.Component {
     this.setState({text:"",fillIns:[],bIndex: 0})
   }
 
+  updateRating(e) {
+    e.stopPropagation();
+    this.setState({inputRating: ~~e.target.value})
+  }
+
+  submitRating(e) {
+    e.preventDefault();
+    if (!this.state.inputRating) {return}
+    let updatedReviews = this.props.currentMadlib.reviews;
+    let reviewsAmount = updatedReviews.push(this.state.inputRating);
+    let updatedReviewers = this.props.currentMadlib.reviewers;
+    updatedReviewers.push(this.props.currentUser);
+    let _newAverage = updatedReviews.reduce((a, b) => a + b) / reviewsAmount;
+    let madlib = {
+      id: this.props.currentUser, // author / userId
+      _id: this.props.currentMadlib._id,  //madlibId
+      title: this.props.currentMadlib.title,
+      body: this.props.currentMadlib.body,
+      reviews: updatedReviews,
+      reviewers: updatedReviewers,
+      rating: _newAverage.toFixed(2),
+    };
+    this.props.editMadlib(madlib)
+    this.setState({rated:true,newAverage:_newAverage.toFixed(2)})
+  }
+
   update(i=this.state.bIndex) {
     return e => {
       let newState = this.state.fillIns;
@@ -48,6 +84,28 @@ class MadlibPlay extends React.Component {
       this.setState({
       fillIns: newState
     })}
+  }
+
+  renderRating(){
+    return (this.state.finished && this.props.loggedIn && this.props.currentMadlib.user !== this.props.currentUser) ? (
+
+      this.state.rated ? <h6>rated! Avg rating: {this.state.newAverage}</h6> : (
+        <div>
+          <label>Rating:
+            <select onChange={this.updateRating} >
+              <option hidden disabled selected value></option>
+              <option value={1} >1</option>
+              <option value={2} >2</option>
+              <option value={3} >3</option>
+              <option value={4} >4</option>
+              <option value={5} >5</option>
+            </select>
+            <button onClick={this.submitRating}>submit</button>
+          </label>
+        </div>
+      )
+
+    ) : ( null )
   }
 
   render() {
@@ -68,6 +126,7 @@ class MadlibPlay extends React.Component {
             <button>Quit</button>
           </Link>
         </form>
+        {this.renderRating()}
         <MadlibBox title={this.props.currentMadlib.title} body={this.state.text} />
       </div>
     ) : (

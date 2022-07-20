@@ -49,7 +49,10 @@ router.patch('/:id', (req, res) => {
   const editData = {
     body: req.body.body,
     title: req.body.title,
-    blanks: req.body.body.match(regexForBlanks)
+    blanks: req.body.body.match(regexForBlanks),
+    reviews: req.body.reviews,
+    reviewers: req.body.reviewers,
+    rating: req.body.rating,
   }
   
   Madlib.findOneAndUpdate(query, editData, (err, doc) => {
@@ -66,7 +69,7 @@ router.post('/',
       return res.status(400).json(errors);
     }
     
-    const regexForBlanks = /(?<=\[).[^\]]*/g;
+    const regexForBlanks = /(?<=\[).[^\]]*/g; // regular expression denoting all substrings contained in brackets (excluding the brackets)
 
     const newMadlib = new Madlib({
       body: req.body.body,

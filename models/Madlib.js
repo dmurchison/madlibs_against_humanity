@@ -22,6 +22,12 @@ const MadlibSchema = new Schema({
   category: {
     type: String
   },
+  reviews: {
+    type: Array
+  },
+  reviewers: {
+    type: Array
+  },
   rating: {
     type: Number,
     default: 0

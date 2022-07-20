@@ -7,7 +7,6 @@ const mapSTP = (state,ownProps) => {
     currentMadlib: state.entities.madlibs[ownProps.match.params.id],
     errors: Object.values(state.errors.madlibs),
     currentUser: state.session.user.id,
-    errors: Object.values(state.errors.madlibs),
     formType: 'Edit'
   };
 };
