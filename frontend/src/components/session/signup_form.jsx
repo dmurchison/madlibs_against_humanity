@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../stylesheets/session_forms.scss';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -11,12 +12,18 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
+  }
+
+  // clears errors from login form
+  componentWillUnmount() {
+    this.props.removeSessionErrors();
   }
 
   handleSubmit(e) {
@@ -27,8 +34,15 @@ class SignupForm extends React.Component {
       password: this.state.password,
       password2: this.state.password2
     };
-
     this.props.signup(user); 
+  }
+
+  handleDemo() {
+    const demo = {
+      email: 'demouser@email.com',
+      password: 'password'
+    };
+    this.props.login(demo);
   }
 
   renderErrors() {
@@ -48,37 +62,53 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
-            
-              <input type="text"
-                value={this.state.handle}
-                onChange={this.update('handle')}
-                placeholder="Handle"
-              />
-            
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
-            
-              <input type="password"
-                value={this.state.password2}
-                onChange={this.update('password2')}
-                placeholder="Confirm Password"
-              />
-            
-            <button>Submit</button>
-            
+        <form className='signup-form' onSubmit={this.handleSubmit}>
+          <h3 className='signup-here'>Signup Here!</h3>
+
+          <div className='session-form-errors'>
             {this.renderErrors()}
           </div>
+
+          <div className='signup-form-email'>
+            <input type="text"
+              value={this.state.email}
+              onChange={this.update('email')}
+              placeholder="Email"
+            />
+          </div>
+        
+          <div className='signup-form-handle'>
+            <input type="text"
+              value={this.state.handle}
+              onChange={this.update('handle')}
+              placeholder="Handle"
+            />
+          </div>
+          
+          <div className='signup-form-password'>
+            <input type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              placeholder="Password"
+            />
+          </div>
+        
+          <div className='signup-form-password'>
+            <input type="password"
+              value={this.state.password2}
+              onChange={this.update('password2')}
+              placeholder="Confirm Password"
+            />
+          </div>
+          
+          <button className='signup-button' type='submit'>Sign Up</button>
+
         </form>
+
+        <div className='demoLogin'>
+          <p>Click here to log in as a demo user!</p>
+          <button className='demoLogin-btn' onClick={this.handleDemo}>Demo Login</button>
+        </div>
       </div>
     );
   }

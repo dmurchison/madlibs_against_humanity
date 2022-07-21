@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../stylesheets/login.scss';
+import '../../stylesheets/session_forms.scss';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   // Handle input field updates
@@ -21,16 +22,27 @@ class LoginForm extends React.Component {
     });
   }
 
+  // Clears errors from signup form
+  componentWillUnmount() {
+    this.props.removeSessionErrors();
+  }
+
   // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
-
     const user = {
       email: this.state.email,
       password: this.state.password
     };
-
     this.props.login(user);
+  }
+
+  handleDemo() {
+    const demo = {
+      email: 'demouser@email.com',
+      password: 'password'
+    };
+    this.props.login(demo);
   }
 
   // Render the session errors if there are any
@@ -53,6 +65,11 @@ class LoginForm extends React.Component {
       <div className='login-form-container'>
         <form className='login-form' onSubmit={this.handleSubmit}>
           <h3 className='login-here'>Login Here!</h3>
+
+          <div className='session-form-errors'>
+            {this.renderErrors()}
+          </div>
+
           <div className='login-form-email'>
             <input type="text"
               value={this.state.email}
@@ -69,10 +86,15 @@ class LoginForm extends React.Component {
             />
           </div>
 
-            <button className='login-button' type='submit'>Log In</button>
-            {this.renderErrors()}
+          <button className='login-button' type='submit'>Log In</button>
 
         </form>
+
+        <div className='demoLogin'>
+          <p>Click here to log in as a demo user!</p>
+          <button className='demoLogin-btn' onClick={this.handleDemo}>Demo Login</button>
+        </div>
+
       </div>
     );
   }

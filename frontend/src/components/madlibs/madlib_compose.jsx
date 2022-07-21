@@ -1,6 +1,6 @@
 import React from 'react';
 import MadlibBox from './madlib_box';
-import '../../stylesheets/madlib_compose.scss';
+import '../../stylesheets/madlib.scss';
 
 class MadlibCompose extends React.Component {
   constructor(props) {
@@ -45,8 +45,6 @@ class MadlibCompose extends React.Component {
       .then( () => {
         this.props.errors.body ? this.setState({errors: true}) : this.props.history.push('/') 
       })
-      
-
   }
 
   update(fld) {
@@ -76,6 +74,11 @@ class MadlibCompose extends React.Component {
 
         <form className='madlib-compose-form' onSubmit={this.handleSubmit}>
           <h3 className='create-madlib-here'>Create or Edit Madlib Here!</h3>
+
+          <div className='madlib-compose-errors'>
+            {this.renderErrors()}
+          </div>
+
           <div className='madlib-compose-title'>
             <input 
               type="text"
@@ -90,13 +93,11 @@ class MadlibCompose extends React.Component {
               className='madlib-compose-textarea'
               value={this.state.body}
               onChange={this.update('body')}
-              placeholder="Madlib body..."
+              placeholder="Example: I am going to the [place] with a lot of [things]. I can't wait to have a [adjective] time!"
             />
           </div>
 
           <button className='madlib-compose-submit-button' type="submit">{formType}</button>
-          {this.renderErrors()}
-
 
         </form>
           <MadlibBox title={this.state.title} body={this.state.body} />

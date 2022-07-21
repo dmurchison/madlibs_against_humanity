@@ -1,6 +1,7 @@
 import React from 'react';
 import MadlibBox from './madlib_box';
 import { Link } from 'react-router-dom';
+import '../../stylesheets/madlib.scss';
 
 class MadlibPlay extends React.Component {
   constructor(props) {
@@ -111,36 +112,43 @@ class MadlibPlay extends React.Component {
   render() {
     if (!this.props.currentMadlib) return null;
     return this.state.bIndex === this.props.currentMadlib.blanks.length ? (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className='madlib-play-container'>
+        <form className='madlib-play-form' onSubmit={this.handleSubmit}>
           {
             this.props.currentMadlib.blanks.map( (blank, i) => (
-              <div>
-                <input type="text" onChange={this.update(i)} placeholder={blank} value={this.state.fillIns[i]}/>
-              </div>
+              <input
+                className='madlib-play-input' 
+                type="text" 
+                onChange={this.update(i)} 
+                placeholder={blank} 
+                value={this.state.fillIns[i]}
+              />
             ))
           }
-          <button type="submit">Finish</button>
-          <button onClick={this.handleReplay} >replay</button>
+          <button className='madlib-play-finish-btn' type="submit">Finish</button>
+          <button className='madlib-play-replay-btn' onClick={this.handleReplay}>Replay</button>
           <Link to={`/madlibs/${this.props.currentMadlib._id}`}>
-            <button>Quit</button>
+            <button className='madlib-play-quit-btn'>Quit</button>
           </Link>
         </form>
         {this.renderRating()}
         <MadlibBox title={this.props.currentMadlib.title} body={this.state.text} />
       </div>
+
     ) : (
-      <div>
-        <form onSubmit={this.handleFillin}>
-          <div>
-            <input type="text" onChange={this.update()} 
+
+      <div className='madlib-play-container'>
+        <form className='madlib-play-form' onSubmit={this.handleFillin}>
+          <input
+            className='madlib-play-input' 
+            type="text" 
+            onChange={this.update()} 
             value={this.state.fillIns[this.state.bIndex]||''} 
             placeholder={this.props.currentMadlib.blanks[this.state.bIndex]}
-            />
-          </div>
-          <button type="submit">fill in</button>
+          />
+          <button className='madlib-play-fillin-btn' type="submit">Fill In</button>
           <Link to={`/madlibs/${this.props.currentMadlib._id}`}>
-            <button>quit</button>
+            <button className='madlib-play-quit-btn'>Quit</button>
           </Link>
         </form>
         <MadlibBox title={this.props.currentMadlib.title} body={this.state.text} />

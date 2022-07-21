@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../stylesheets/madlib_index.scss';
+import '../../stylesheets/madlib.scss';
 
 class MadlibIndex extends React.Component {
   constructor(props) {
@@ -29,7 +29,6 @@ class MadlibIndex extends React.Component {
     )
   }
 
-
   render() {
     if (!this.props.madlibs) return null;
     return (
@@ -43,6 +42,7 @@ class MadlibIndex extends React.Component {
       </div>
     )
   }
+  
 };
 
 export default MadlibIndex;
