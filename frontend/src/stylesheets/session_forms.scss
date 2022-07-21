@@ -30,6 +30,7 @@
   margin-top: 0;
   margin-bottom: 1.5rem;
   text-align: center;
+  font-weight: bold;
 }
 
 .login-form-email {
@@ -88,6 +89,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  font-weight: bold;
 }
 .demoLogin-btn {
   height: 2rem;
@@ -95,6 +97,7 @@
   border-radius: 5px;
   border-color: blue;
   color: navy;
+  font-weight: bold;
 }
 .demoLogin-btn:hover {
   transform: scale(1.05);
@@ -135,6 +138,7 @@
   margin-top: .25rem;
   margin-bottom: 1.5rem;
   text-align: center;
+  font-weight: bold;
 }
 
 .signup-form-email, .signup-form-handle {

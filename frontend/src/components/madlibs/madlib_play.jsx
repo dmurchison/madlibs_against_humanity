@@ -90,8 +90,8 @@ class MadlibPlay extends React.Component {
   renderRating(){
     return (this.state.finished && this.props.loggedIn && this.props.currentMadlib.user !== this.props.currentUser) ? (
 
-      this.state.rated ? <h6>rated! Avg rating: {this.state.newAverage}</h6> : (
-        <div>
+      this.state.rated ? <h6 className='rating'>Rated! Average Rating: {this.state.newAverage}</h6> : (
+        <div className='rating-dropdown'>
           <label>Rating:
             <select onChange={this.updateRating} >
               <option hidden disabled selected value></option>
@@ -101,7 +101,7 @@ class MadlibPlay extends React.Component {
               <option value={4} >4</option>
               <option value={5} >5</option>
             </select>
-            <button onClick={this.submitRating}>submit</button>
+            <button className='rating-submit' onClick={this.submitRating}>submit</button>
           </label>
         </div>
       )
@@ -131,7 +131,7 @@ class MadlibPlay extends React.Component {
             <button className='madlib-play-quit-btn'>Quit</button>
           </Link>
         </form>
-        {this.renderRating()}
+          {this.renderRating()}
         <MadlibBox title={this.props.currentMadlib.title} body={this.state.text} />
       </div>
 
