@@ -207,12 +207,15 @@
   display: flex;
   font-style: oblique;
   text-decoration: underline;
+  margin-top: 8rem;
   margin-bottom: .25rem;
 }
 .madlib-box-instructions {
   display: flex;
   flex-direction: column;
-  margin-bottom: .5rem;
+  justify-content: flex-end;
+  text-align: left;
+  margin-bottom: 0;
   margin-left: .25rem;
   font-size: x-small;
 }

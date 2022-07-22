@@ -113,70 +113,39 @@
   position: fixed;
 }
 
-// .dev-team {
-//   font-style: italic;
-//   margin-left: .25rem;
-//   font-size: large;
-//   border-color: white;
-//   border: 2px;
-//   padding: 2px
-// }
-
 .dev-info-container {
   display: flex;
   justify-content: space-around;
-  margin-top: .5rem;
-  margin-bottom: 2rem;
+  // margin-bottom: 2rem;
+  padding-bottom: 2rem;
   font-style: bold;
 }
 
-.Naran {
-  color: black;
-  border: 5px;
-  border-radius: 2rem;
-  border-color: blue;
-  background-color: aqua;
-  border-style: groove;
-  padding: 10px 10px;
-  margin-bottom: 2.5rem;
-}
-.Duncan{
-  color: black;
-  border: 5px;
-  border-radius: 2rem;
-  border-color: blue;
-  background-color: aqua;
-  border-style: groove;
-  padding: 10px 10px;
-  margin-bottom: 2.5rem;
-}
-.Mike {
-  color: black;
-  border: 5px;
-  border-radius: 2rem;
-  border-color: blue;
-  background-color: aqua;
-  border-style: groove;
-  padding: 10px 10px;
-  margin-bottom: 2.5rem;
-}
-.Naran:hover, .Duncan:hover, .Mike:hover {
-  transform: scale(1.25);
-  cursor: crosshair;
+.portfolio-site:hover {
+  color: blue;
 }
 
-.clickus {
-  font-style: italic;
-  font-size: small;
-  padding-left: 1px;
-  padding-right: 1px;
-  padding-top: 2px;
+.Duncan, .Naran, .Mike{
+  color: black;
+  border: 5px;
+  border-radius: 2rem;
+  border-color: blue;
+  background-color: aqua;
+  border-style: groove;
+  padding: 10px 10px;
+  margin-bottom: 2.5rem;
+  width: 10rem;
+  text-align: center;
+}
+.Duncan:hover, .Naran:hover, .Mike:hover {
+  transform: scale(1.25);
+  cursor: crosshair;
 }
 
 .dev-links {
   display: flex;
   justify-content: space-around;
-  padding-top: 5px;
+  padding-top: .5rem;
 }
 .github:hover, .angel-list:hover, .linkedin:hover {
   transform: scale(1.25);

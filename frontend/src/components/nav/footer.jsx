@@ -8,7 +8,7 @@ const Footer = (props) => {
 
         {/* Duncan */}
         <div className='Duncan'>
-          <a href="https://dmurchison.github.io/portfolio_site/#/" target={'_blank'}>Duncan Murchison</a>
+          <a className='portfolio-site' href="https://dmurchison.github.io/portfolio_site/#/" target={'_blank'}>Duncan Murchison</a>
           <div className='dev-links'>
             <div className='github'>
               <a href="https://github.com/dmurchison" target={'_blank'}>
@@ -30,7 +30,7 @@ const Footer = (props) => {
 
         {/* Naran */}
         <div className='Naran'>
-          <a href="https://github.com/nivan16" target={'_blank'}>Naran Ivanchukov</a>
+          <a className='portfolio-site' href="https://github.com/nivan16" target={'_blank'}>Naran Ivanchukov</a>
           <div className='dev-links'>
             <div className='github'>
               <a href="https://github.com/nivan16" target={'_blank'}>
@@ -52,7 +52,7 @@ const Footer = (props) => {
 
         {/* Mike */}
         <div className='Mike'>
-          <a href="https://github.com/Charrs-Barwin" target={'_blank'}>Mike Hollander</a>
+          <a className='portfolio-site' href="https://github.com/Charrs-Barwin" target={'_blank'}>Mike Hollander</a>
           <div className='dev-links'>
             <div className='github'>
               <a href="https://github.com/Charrs-Barwin" target={'_blank'}>

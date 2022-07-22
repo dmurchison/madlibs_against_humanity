@@ -26,7 +26,7 @@ class MadlibBox extends React.Component {
         </div>
 
         <div className='madlib-box-instructions'>
-            <h5 className='instructions'>Instructions:</h5>
+          <h5 className='instructions'>Instructions (create):</h5>
           <ol>
             <li>Enter title in the given text area.</li>
             <li>Use [example] brackets to write whichever type of word you like.</li>
