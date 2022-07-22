@@ -178,11 +178,8 @@
   justify-content: space-around;
   padding-top: 5px;
 }
-.github:hover {
+.github:hover, .angel-list:hover, .linkedin:hover {
   transform: scale(1.25);
   cursor: pointer;
 }
-.linkedin:hover {
-  transform: scale(1.25);
-  cursor: pointer;
-}
+
