@@ -20,8 +20,13 @@ class MadlibIndex extends React.Component {
         <Link key={`madlib-link-${i}`} to={`madlibs/${madlib._id}`}>
           <div className='madlib-title-link' key={`madlib-${i}`}>
             {madlib.title}
-            <div className='madlib-info'>
-              <p>Creator:  {this.props.authors[madlib.user] ? this.props.authors[madlib.user].handle : "Madliby"} </p>
+            <div className='madlib-index-info'>
+              <div className='madlib-index-author'>
+                <p>Creator:  {this.props.authors[madlib.user] ? this.props.authors[madlib.user].handle : "Madliby"} </p>
+              </div>
+              <div className='madlib-index-rating'>
+                <p>Rating: {madlib.rating}</p>
+              </div>
             </div>
           </div>
         </Link>            

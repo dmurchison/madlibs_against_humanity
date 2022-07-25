@@ -45,12 +45,30 @@
   color: darkblue;
 }
 
-.madlib-info {
+// .madlib-index-info {
+//   display: flex;
+//   justify-content: space-around;
+//   font-size: small;
+//   border-style: groove;
+//   border: 10px;
+//   border-color: #080710;
+// }
+
+.madlib-index-author {
   font-size: small;
   display: flex;
   float: right;
   flex-direction: column;
-  margin-left: 20rem;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.madlib-index-rating {
+  font-size: small;
+  display: flex;
+  text-align: center;
+  margin-right: 20rem;
   margin-top: 1rem;
   margin-bottom: 0;
 }

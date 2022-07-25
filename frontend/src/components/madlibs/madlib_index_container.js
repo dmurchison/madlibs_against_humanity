@@ -4,7 +4,7 @@ import MadlibIndex from './madlib_index';
 
 const mapStateToProps = state => ({
     madlibs: Object.values(state.entities.madlibs),
-    authors: state.entities.users
+    authors: state.entities.users,
 });
 
 const mapDispatchToProps = dispatch => ({
