@@ -126,30 +126,38 @@
   background: radial-gradient(circle at bottom, rgb(0, 0, 0) 0, rgb(255, 255, 255) 100%);
   color: black;
   margin-bottom: 0;
-  position: fixed;
+  // position: fixed;
 }
 
 .dev-info-container {
   display: flex;
   justify-content: space-around;
   // margin-bottom: 2rem;
-  padding-bottom: 2rem;
+  // padding-bottom: 2rem;
   font-style: bold;
 }
-
-.portfolio-site:hover {
-  color: blue;
+.portfolio-site{
+  box-sizing: border-box;
+  color: rgb(0, 94, 255);
+  text-decoration: none;
+  border-bottom: 2px solid rgb(0, 94, 255);
+  // margin-bottom: -1px;
+}
+.portfolio-site:visited {
+  color: rgb(0, 94, 255);
 }
 
 .Duncan, .Naran, .Mike{
   color: black;
   border: 5px;
   border-radius: 2rem;
-  border-color: blue;
-  background-color: aqua;
+  border-color: rgb(5, 97, 22);
+  background-color: rgb(31, 252, 105);
+  // background-color: rgb(7, 98, 24);
+  // color: white;
   border-style: groove;
   padding: 10px 10px;
-  margin-bottom: 2.5rem;
+  // margin-bottom: 2.5rem;
   width: 10rem;
   text-align: center;
   transition: 325ms;
@@ -157,6 +165,7 @@
 .Duncan:hover, .Naran:hover, .Mike:hover {
   transform: scale(1.25);
   cursor: crosshair;
+  background-color: white;
 }
 
 .dev-links {

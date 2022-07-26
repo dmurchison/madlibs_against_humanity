@@ -22,7 +22,7 @@
 .login-form:hover {
   transform: scale(1.025);
   // cursor: crosshair;
-  background-color: white;
+  background-color: rgb(231, 231, 231);
   color: rgb(66, 197, 101);
 }
 
@@ -127,14 +127,17 @@
   border: 5px;
   border-style: groove;
   border-radius: 10px;
-  border-color: blue;
-  background-color: aqua;
+  border-color: rgba(11, 190, 8, 0.827);
+  background-color: rgba(187, 244, 197);
   padding: 5rem;
   height: 15rem;
+  transition: 325ms;
 }
 .signup-form:hover {
   transform: scale(1.05);
   cursor: crosshair;
+  background-color: rgb(255, 255, 255);
+  color: rgb(66, 197, 101);
 }
 
 .signup-here {

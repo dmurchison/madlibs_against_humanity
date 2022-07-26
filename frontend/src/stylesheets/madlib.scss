@@ -7,7 +7,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 1rem;
-  margin-bottom: 15rem;
+  margin-bottom: 5rem;
 }
 
 .madlib-index-header {
@@ -83,12 +83,23 @@
 
 // Create Madlib Form
 
+
+
 .madlib-compose-container {
   display: flex;
   justify-content: space-around;
+
   margin-top: 2rem;
   margin-left: 5rem;
   margin-right: 5rem;
+}
+
+@media screen and (max-width: 1060px) {
+  .madlib-compose-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .madlib-compose-form {
@@ -101,9 +112,10 @@
   border-color: blue;
   background-color: aqua;
   padding: 2rem;
-  margin-bottom: 20rem;
+  margin-bottom: 2rem;
   width: 25rem;
   font-weight: bold;
+  transition: 325ms;
 }
 .madlib-compose-form:hover {
   transform: scale(1.05);
@@ -173,13 +185,18 @@
 // Madlibs Box
 
 .madlib-box-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   border: 5px;
   border-style: groove;
   border-radius: 10px;
   border-color: blue;
   background-color: aqua;
+  padding: 2rem;
+  margin-bottom: 2rem;
   width: 25rem;
-  margin-bottom: 20rem;
+  transition: 325ms;
 }
 .madlib-box-container:hover {
   transform: scale(1.05);
