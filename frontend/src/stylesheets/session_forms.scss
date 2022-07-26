@@ -16,7 +16,7 @@
   border-style: groove;
   border-radius: 10px;
   border-color: rgba(11, 190, 8, 0.827);
-  background-color: rgba(5, 118, 3, 0.827);
+  background-color: rgb(7, 98, 24);
   color: white;
   padding: 5rem;
   height: 25rem;
@@ -58,7 +58,7 @@
   margin-top: 50px;
   width: 100%;
   background-color: #ffffff;
-  color: rgba(5, 118, 3, 0.827);
+  color: rgb(7, 98, 24);
   border-color: rgb(66, 197, 101);
   padding: 15px 0;
   font-size: 18px;
@@ -71,7 +71,7 @@
 .login-button:hover, .signup-button:hover {
   transform: scale(1.05);
   color: white;
-  background-color: rgba(5, 118, 3, 0.827);
+  background-color: rgb(7, 98, 24);
 }
 
 
@@ -97,14 +97,14 @@
   height: 2rem;
   border-radius: 5px;
   border-color: rgb(66, 197, 101);
-  color: rgba(5, 118, 3, 0.827);
+  color: rgb(7, 98, 24);
   font-weight: bold;
   transition: 325ms;
 }
 .demoLogin-btn:hover {
   transform: scale(1.05);
   cursor: pointer;
-  background-color: rgba(5, 118, 3, 0.827);
+  background-color: rgb(7, 98, 24);
   color: white;
 }
 

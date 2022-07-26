@@ -283,15 +283,18 @@
   border-style: groove;
   border-radius: 10px;
   height: 20rem;
-  border-color: navy;
+  border-color: rgb(66, 197, 101);
   margin-left: 5rem;
   margin-right: 5rem;
   margin-top: 5rem;
-  background-color: aqua;
+  background-color: rgb(7, 98, 24);
+  color: white;
+  transition: 325ms;
 }
 .madlib-show-container:hover {
   transform: scale(1.05);
-  cursor: crosshair;
+  color: rgb(66, 197, 101);
+  background-color: white;
 }
 
 .madlib-show-title {
@@ -311,21 +314,22 @@
 
 .edit-button, .play-button, .delete-button {
   background-color: white;
-  color: navy;
+  color: rgb(7, 98, 24);
   width: 25rem;
   height: 2.5rem;
-  border: navy;
+  border: rgb(66, 197, 101);
   border-style: groove;
   border-radius: 10px;
   margin-top: .25rem;
   margin-bottom: .25rem;
   margin-left: 2rem;
   margin-right: 2rem;
+  transition: 325ms;
+  font-weight: bold;
 }
 .edit-button:hover, .play-button:hover, .delete-button:hover {
   transform: scale(1.05);
-  background-color: navy;
-  border-color: white;
+  background-color: rgb(7, 98, 24);
   color: white;
   cursor: pointer;
 }
@@ -368,27 +372,27 @@
 .madlib-play-input {
   height: 1.5rem;
   margin-bottom: 1rem;
-  background-color: navy;
+  background-color: black;
   color: white;
   font-weight: bold;
 }
 
 .madlib-play-fillin-btn, .madlib-play-quit-btn, .madlib-play-finish-btn, .madlib-play-replay-btn {
   background-color: white;
-  color: black;
+  color: rgb(7, 98, 24);
   width: 25rem;
   height: 2.5rem;
-  border: navy;
+  border: rgb(66, 197, 101);
   border-style: groove;
   border-radius: 10px;
   margin-top: .25rem;
   margin-bottom: .25rem;
   font-weight: bold;
+  transition: 325ms;
 }
 .madlib-play-fillin-btn:hover, .madlib-play-quit-btn:hover, .madlib-play-finish-btn:hover, .madlib-play-replay-btn:hover {
   transform: scale(1.05);
-  background-color: navy;
-  border-color: white;
+  background-color: rgb(7, 98, 24);
   color: white;
   cursor: pointer;
 }
