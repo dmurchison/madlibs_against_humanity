@@ -13,14 +13,19 @@
 .madlib-index-header {
   font-size: xx-large;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: black;
-  text-decoration: underline;
+  color: rgb(91, 95, 93);
+  border-bottom: 0.125rem solid;
   margin-bottom: 1rem;
+}
+
+.madlibs-index-titles a{
+  text-decoration: none;
 }
 
 .madlibs-title-container {
   font-size: x-large;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: fantasy;
 }
 
 .madlib-title-link {
@@ -31,18 +36,18 @@
   flex-direction: column;
   border: 5px;
   border-radius: 10px;
-  border-color: aqua;
+  border-color: rgba(11, 190, 8, 0.827);
   border-style: double;
-  background-color: blue;
+  background-color: rgb(7, 98, 24);
   color: white;
   padding: 20px;
-  text-decoration: underline;
   width: 25rem;
+  transition: 325ms;
 }
 .madlib-title-link:hover {
   transform: scale(1.15);
-  background-color: aliceblue;
-  color: darkblue;
+  background-color: white;
+  color: rgb(66, 197, 101);
 }
 
 // .madlib-index-info {

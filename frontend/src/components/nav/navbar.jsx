@@ -43,10 +43,10 @@ class NavBar extends React.Component {
       <div className='header-container'>
         <div className='header'>
           <h1 className='header-h1'>
-            <Link className='header-h1-link' to={'/'}>Mad Liber</Link>
+            <Link className='header-h1-link' to={'/'}>MadLibber</Link>
           </h1>
           <br />
-          <p>A website for Madlibs and Friends!</p>
+          <p>a website for madlibs and friends!</p>
         </div>
         <div className='navbar-container'>
           {this.getLinks()}

@@ -13,14 +13,17 @@
   border: 5px;
   border-style: groove;
   border-radius: 10px;
-  border-color: blue;
-  background-color: aqua;
+  border-color: rgba(11, 190, 8, 0.827);
+  background-color: rgba(187, 244, 197);
   padding: 5rem;
   height: 10rem;
+  transition: 325ms;
 }
 .login-form:hover {
-  transform: scale(1.05);
-  cursor: crosshair;
+  transform: scale(1.025);
+  // cursor: crosshair;
+  background-color: white;
+  color: rgb(66, 197, 101);
 }
 
 .login-here {
@@ -31,6 +34,7 @@
   margin-bottom: 1.5rem;
   text-align: center;
   font-weight: bold;
+  color: #01481f;
 }
 
 .login-form-email {
@@ -92,12 +96,14 @@
   font-weight: bold;
 }
 .demoLogin-btn {
+  margin-top: 1rem;
   height: 2rem;
-  background-color: aqua;
+  background-color: rgba(187, 244, 197);
   border-radius: 5px;
-  border-color: blue;
-  color: navy;
+  border-color: rgba(5, 118, 3, 0.827);
+  color: rgb(91, 95, 93);
   font-weight: bold;
+  transition: 325ms;
 }
 .demoLogin-btn:hover {
   transform: scale(1.05);
