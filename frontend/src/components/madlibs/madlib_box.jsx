@@ -5,7 +5,7 @@ class MadlibBox extends React.Component {
   render() {
     return (
       <div className='madlib-box-container'>
-        <h3 className='your-madlib'>Check it out!</h3>
+        <h3 className='madlib-box-header'>Check it out!</h3>
 
         <div className='madlib-box-title'>
           <div>

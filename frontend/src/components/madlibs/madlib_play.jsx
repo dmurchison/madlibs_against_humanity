@@ -139,6 +139,7 @@ class MadlibPlay extends React.Component {
 
       <div className='madlib-play-container'>
         <form className='madlib-play-form' onSubmit={this.handleFillin}>
+          <h3 className='madlib-box-header'>Fill in the Blanks!</h3>
           <input
             className='madlib-play-input' 
             type="text" 

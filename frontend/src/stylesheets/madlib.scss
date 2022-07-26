@@ -26,6 +26,7 @@
   font-size: x-large;
   // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-family: fantasy;
+  margin-bottom: 5rem;
 }
 .madlibs-title-container a{
   text-decoration: none;
@@ -84,9 +85,8 @@
 
 
 
-// Create Madlib Form
 
-
+// Madlibs Create
 
 .madlib-compose-container {
   display: flex;
@@ -95,10 +95,10 @@
   margin-top: 2rem;
   margin-left: 5rem;
   margin-right: 5rem;
+  margin-bottom: 10rem;
 }
-
-@media screen and (max-width: 1060px) {
-  .madlib-compose-container {
+@media screen and (max-width: 1195px) {
+  .madlib-compose-container, .madlib-play-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,10 +110,11 @@
   justify-content: center;
   flex-direction: column;
   border: 5px;
-  border-style: groove;
   border-radius: 10px;
-  border-color: blue;
-  background-color: aqua;
+  border-color: rgba(11, 190, 8, 0.827);
+  border-style: double;
+  background-color: rgb(7, 98, 24);
+  color: white;
   padding: 2rem;
   margin-bottom: 2rem;
   width: 25rem;
@@ -122,13 +123,14 @@
 }
 .madlib-compose-form:hover {
   transform: scale(1.05);
-  cursor: crosshair;
+  background-color: white;
+  color: rgb(66, 197, 101);
 }
 
 .madlib-compose-textarea {
   height: 5rem;
   width: 15rem;
-  background-color: navy;
+  background-color: black;
   color: white;
   font-weight: bold;
 }
@@ -160,15 +162,18 @@
 .madlib-compose-submit-button {
   width: 100%;
   background-color: #ffffff;
-  color: #080710;
+  color: rgb(66, 197, 101);
   padding: 10px;
   font-size: 15px;
   font-weight: 600;
   border-radius: 5px;
   margin-bottom: 10px;
+  transition: 325ms;
 }
 .madlib-compose-submit-button:hover {
   transform: scale(1.05);
+  color: white;
+  background-color: rgb(7, 98, 24);
   cursor: pointer;
 }
 
@@ -192,10 +197,11 @@
   justify-content: center;
   flex-direction: column;
   border: 5px;
-  border-style: groove;
   border-radius: 10px;
-  border-color: blue;
-  background-color: aqua;
+  border-color: rgba(11, 190, 8, 0.827);
+  border-style: double;
+  background-color: rgb(7, 98, 24);
+  color: white;
   padding: 2rem;
   margin-bottom: 2rem;
   width: 25rem;
@@ -203,10 +209,11 @@
 }
 .madlib-box-container:hover {
   transform: scale(1.05);
-  cursor: crosshair;
+  background-color: white;
+  color: rgb(66, 197, 101);
 }
 
-.your-madlib {
+.madlib-box-header {
   font-size: 25px;
   font-weight: bold;
   line-height: 25px;
@@ -234,7 +241,6 @@
   overflow-y: scroll;
 }
 .p-title, .p-body {
-  color: rgb(0, 12, 102);
   text-align: center;
   text-decoration:solid;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -334,6 +340,7 @@
   justify-content: space-around;
   text-align: center;
   margin-top: 2.5rem;
+  margin-bottom: 10rem;
 }
 
 .madlib-play-form {
@@ -341,17 +348,21 @@
   justify-content: center;
   flex-direction: column;
   border: 5px;
-  border-style: groove;
   border-radius: 10px;
-  border-color: blue;
-  background-color: aqua;
+  border-color: rgba(11, 190, 8, 0.827);
+  border-style: double;
+  background-color: rgb(7, 98, 24);
+  color: white;
   padding: 2rem;
-  margin-bottom: 20rem;
+  margin-bottom: 2rem;
   width: 25rem;
+  font-weight: bold;
+  transition: 325ms;
 }
 .madlib-play-form:hover {
   transform: scale(1.05);
-  cursor: crosshair;
+  background-color: white;
+  color: rgb(66, 197, 101);
 }
 
 .madlib-play-input {
@@ -364,7 +375,7 @@
 
 .madlib-play-fillin-btn, .madlib-play-quit-btn, .madlib-play-finish-btn, .madlib-play-replay-btn {
   background-color: white;
-  color: navy;
+  color: black;
   width: 25rem;
   height: 2.5rem;
   border: navy;
@@ -372,8 +383,6 @@
   border-radius: 10px;
   margin-top: .25rem;
   margin-bottom: .25rem;
-  // margin-left: 2rem;
-  margin-right: 2rem;
   font-weight: bold;
 }
 .madlib-play-fillin-btn:hover, .madlib-play-quit-btn:hover, .madlib-play-finish-btn:hover, .madlib-play-replay-btn:hover {
@@ -386,32 +395,37 @@
 
 
 // Madlib Rating
+
 .rating, .rating-dropdown {
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  color: whitesmoke;
   border: 5px;
-  border-radius: 5px;
-  border-style: groove;
-  border-color: aqua;
-  background-color: navy;
-  max-height: 3rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  border-radius: 10px;
+  border-color: rgba(11, 190, 8, 0.827);
+  border-style: double;
+  background-color: rgb(7, 98, 24);
+  color: white;
+  max-height: 5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   font-weight: bold;
+  margin-bottom: 1.5rem;
+  transition: 325ms;
 }
 .rating-dropdown:hover {
   transform: scale(1.05);
+  background-color: white;
+  color: rgb(66, 197, 101);
 }
 
 .rating-submit {
   margin-left: 1rem;
-  background-color: white;
-  color: navy;
+  background-color: #ffffff;
+  color: rgb(66, 197, 101);
   height: 2rem;
-  border: navy;
+  border: rgb(66, 197, 101);
   border-style: groove;
   border-radius: 10px;
   margin-top: .25rem;
@@ -419,11 +433,11 @@
   margin-left: 2rem;
   margin-right: 2rem;
   font-weight: bold;
+  transition: 325ms;
 }
 .rating-submit:hover {
   transform: scale(1.05);
-  background-color: navy;
-  border-color: white;
   color: white;
+  background-color: rgb(7, 98, 24);
   cursor: pointer;
 }

@@ -1,32 +1,35 @@
 // Login Form
 .login-form-container {
   display: flex;
+  align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  margin-bottom: 15rem;
+  margin-bottom: 5rem;
 }
 
-.login-form {
+.login-form, .signup-form {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   border: 5px;
   border-style: groove;
   border-radius: 10px;
   border-color: rgba(11, 190, 8, 0.827);
-  background-color: rgba(187, 244, 197);
+  background-color: rgba(5, 118, 3, 0.827);
+  color: white;
   padding: 5rem;
-  height: 10rem;
+  height: 25rem;
+  width: 20rem;
   transition: 325ms;
 }
-.login-form:hover {
-  transform: scale(1.025);
-  // cursor: crosshair;
-  background-color: rgb(231, 231, 231);
+.login-form:hover, .signup-form:hover {
+  transform: scale(1.05);
+  background-color: white;
   color: rgb(66, 197, 101);
 }
 
-.login-here {
+.login-here, .signup-here {
   font-size: 25px;
   font-weight: 500;
   line-height: 25px;
@@ -34,51 +37,45 @@
   margin-bottom: 1.5rem;
   text-align: center;
   font-weight: bold;
-  color: #01481f;
+  // color: #01481f;
 }
 
-.login-form-email {
-  display: block;
-  height: 50px;
-  width: 100%;
-  background-color: rgba(255,255,255,0.07);
-  border-radius: 3px;
-  padding: 0 10px;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 300;
+.login-form-email, .login-form-password, .signup-form-handle, .signup-form-email, .signup-form-password {
+  // display: block;
+  // height: 50px;
+  // width: 100%;
+  // background-color: rgba(255,255,255,0.07);
+  // border-radius: 3px;
+  // padding: 0 10px;
+  // margin-top: 8px;
+  // font-size: 14px;
+  // font-weight: 300;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
-.login-form-password {
-  display: block;
-  height: 50px;
-  width: 100%;
-  background-color: rgba(255,255,255,0.07);
-  border-radius: 3px;
-  padding: 0 10px;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.login-button {
+.login-button, .signup-button {
   margin-top: 50px;
   width: 100%;
   background-color: #ffffff;
-  color: #080710;
+  color: rgba(5, 118, 3, 0.827);
+  border-color: rgb(66, 197, 101);
   padding: 15px 0;
   font-size: 18px;
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: .5rem;
+  transition: 325ms;
 }
-.login-button:hover {
+.login-button:hover, .signup-button:hover {
   transform: scale(1.05);
+  color: white;
+  background-color: rgba(5, 118, 3, 0.827);
 }
 
 
-// Session Forms & Buttons
+// @media Session Forms & Buttons
 .session-form-errors {
   display: flex;
   justify-content: center;
@@ -89,26 +86,38 @@
 }
 
 .demoLogin {
-  margin-left: 2rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   font-weight: bold;
+  margin-top: 2.5rem;
 }
 .demoLogin-btn {
   margin-top: 1rem;
   height: 2rem;
-  background-color: rgba(187, 244, 197);
   border-radius: 5px;
-  border-color: rgba(5, 118, 3, 0.827);
-  color: rgb(91, 95, 93);
+  border-color: rgb(66, 197, 101);
+  color: rgba(5, 118, 3, 0.827);
   font-weight: bold;
   transition: 325ms;
 }
 .demoLogin-btn:hover {
   transform: scale(1.05);
   cursor: pointer;
-  background-color: white;
+  background-color: rgba(5, 118, 3, 0.827);
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .signup-form-container, .login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .demoLogin {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
 }
 
 
@@ -118,74 +127,4 @@
   justify-content: center;
   margin-top: 2rem;
   margin-bottom: 15rem;
-}
-
-.signup-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  border: 5px;
-  border-style: groove;
-  border-radius: 10px;
-  border-color: rgba(11, 190, 8, 0.827);
-  background-color: rgba(187, 244, 197);
-  padding: 5rem;
-  height: 15rem;
-  transition: 325ms;
-}
-.signup-form:hover {
-  transform: scale(1.05);
-  cursor: crosshair;
-  background-color: rgb(255, 255, 255);
-  color: rgb(66, 197, 101);
-}
-
-.signup-here {
-  font-size: 25px;
-  font-weight: 500;
-  line-height: 25px;
-  margin-top: .25rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-weight: bold;
-}
-
-.signup-form-email, .signup-form-handle {
-  display: block;
-  height: 50px;
-  width: 100%;
-  background-color: rgba(255,255,255,0.07);
-  border-radius: 3px;
-  padding: 0 10px;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.signup-form-password {
-  display: block;
-  height: 50px;
-  width: 100%;
-  background-color: rgba(255,255,255,0.07);
-  border-radius: 3px;
-  padding: 0 10px;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.signup-button {
-  margin-top: 50px;
-  width: 100%;
-  background-color: #ffffff;
-  color: #080710;
-  padding: 15px 0;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: .5rem;
-}
-.signup-button:hover {
-  transform: scale(1.05);
 }
