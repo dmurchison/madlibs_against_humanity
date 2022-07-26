@@ -121,11 +121,12 @@
   padding: 1rem;
   // margin-top: 2.5rem;
   height: 5rem;
+  width: 100%;
   bottom: 0;
   background: radial-gradient(circle at bottom, rgb(0, 0, 0) 0, rgb(255, 255, 255) 100%);
   color: black;
   margin-bottom: 0;
-  // position: fixed;
+  position: fixed;
 }
 
 .dev-info-container {
