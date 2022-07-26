@@ -24,10 +24,19 @@ Once a user is logged in they have the choice to create or do madlibs, once they
 A user will also have the ability to view there own created madlibs with the current ratings as well as edit, or update them.
 
 ## Dev Team
-[Duncan Murchison](https://dmurchison.github.io/portfolio_site/#/)
-[Mike Hollander](https://github.com/Charrs-Barwin)
-[Naran Ivanchukov](https://github.com/nivan16)
+  - [Duncan Murchison](https://dmurchison.github.io/portfolio_site/#/)
+  - [Mike Hollander](https://github.com/Charrs-Barwin)
+  - [Naran Ivanchukov](https://github.com/nivan16)
 
 ### Technology Used
-  - Back End: | Node.js | MongoDB | Mongoose | Express.js |
-  - Front End: | React.js | Axios | Redux | Sass |
+  - Back End:
+    - Node.js
+    - MongoDB
+    - Mongoose
+    - Express.js
+
+  - Front End:
+    - React.js
+    - Axios
+    - Redux
+    - Sass
