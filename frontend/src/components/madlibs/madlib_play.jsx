@@ -101,8 +101,8 @@ class MadlibPlay extends React.Component {
               <option value={4} >4</option>
               <option value={5} >5</option>
             </select>
-            <button className='rating-submit' onClick={this.submitRating}>submit</button>
           </label>
+          <button className='rating-submit' onClick={this.submitRating}>submit</button>
         </div>
       )
 

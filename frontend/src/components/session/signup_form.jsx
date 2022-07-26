@@ -26,8 +26,8 @@ class SignupForm extends React.Component {
     this.props.removeSessionErrors();
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit() {
+    // e.preventDefault();
     let user = {
       email: this.state.email,
       handle: this.state.handle,
@@ -37,7 +37,8 @@ class SignupForm extends React.Component {
     this.props.signup(user); 
   }
 
-  handleDemo() {
+  handleDemo(e) {
+    e.preventDefault();
     const demo = {
       email: 'demouser@email.com',
       password: 'password'

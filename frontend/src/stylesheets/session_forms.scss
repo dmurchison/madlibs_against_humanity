@@ -1,10 +1,9 @@
-// Login Form
-.login-form-container {
+// Session Form
+.login-form-container, .signup-form-container {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  margin-bottom: 5rem;
+  margin-bottom: 15rem;
 }
 
 .login-form, .signup-form {
@@ -108,23 +107,15 @@
   color: white;
 }
 
-@media screen and (max-width: 800px) {
-  .signup-form-container, .login-form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .demoLogin {
-    margin-top: 1rem;
-    margin-left: 0;
-  }
-}
+// @media screen and (max-width: 800px) {
+//   .signup-form-container, .login-form-container {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+//   .demoLogin {
+//     margin-top: 1rem;
+//     margin-left: 0;
+//   }
+// }
 
-
-// Signup Form
-.signup-form-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 15rem;
-}

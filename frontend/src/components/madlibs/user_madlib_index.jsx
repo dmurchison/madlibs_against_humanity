@@ -20,6 +20,9 @@ class UsersMadlibIndex extends React.Component {
           <Link to={`/madlibs/${madlib._id}`}>
             <div className="madlib-title-link">
               {madlib.title}
+              <div className='user-madlib-index-rating'>
+                <p>Rating: {madlib.rating}</p>
+              </div>
             </div>
           </Link>
         )

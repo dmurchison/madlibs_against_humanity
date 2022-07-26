@@ -7,7 +7,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 1rem;
-  margin-bottom: 5rem;
+  margin-bottom: 15rem;
 }
 
 .madlib-index-header {
@@ -26,7 +26,7 @@
 .madlibs-title-container {
   font-size: x-large;
   // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-family: fantasy;
+  font-family: monospace;
   margin-bottom: 5rem;
 }
 
@@ -84,6 +84,16 @@
   margin-bottom: 0;
 }
 
+.user-madlib-index-rating {
+  font-size: small;
+  display: flex;
+  text-align: center;
+  margin-left: 20rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+
 
 
 
@@ -97,13 +107,16 @@
   margin-top: 2rem;
   margin-left: 5rem;
   margin-right: 5rem;
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
 }
 @media screen and (max-width: 1195px) {
   .madlib-compose-container, .madlib-play-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .rating, .rating-dropdown {
+    padding: 10px;
   }
 }
 
@@ -212,16 +225,17 @@
 .madlib-box-container:hover {
   transform: scale(1.05);
   background-color: white;
-  color: rgb(66, 197, 101);
+  color: rgb(7, 98, 24);
 }
 
 .madlib-box-header {
-  font-size: 25px;
+  font-size: 35px;
   font-weight: bold;
   line-height: 25px;
   margin-top: .5rem;
   margin-bottom: 1rem;
   text-align: center;
+  font-family: monospace;
 }
 
 .madlib-box-title {
@@ -245,7 +259,9 @@
 .p-title, .p-body {
   text-align: center;
   text-decoration:solid;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: monospace;
+  font-size: large;
   margin-top: .5rem;
   margin-left: .25rem;
   margin-right: .25rem;
@@ -258,7 +274,6 @@
   display: flex;
   font-style: oblique;
   text-decoration: underline;
-  margin-top: 8rem;
   margin-bottom: .25rem;
 }
 .madlib-box-instructions {
@@ -268,7 +283,14 @@
   text-align: left;
   margin-bottom: 0;
   margin-left: .25rem;
-  font-size: x-small;
+  font-size: small;
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border-style: dotted;
+  border-color: black;
+  border-radius: 5px;
+  border-width: 3px;
 }
 
 
@@ -289,9 +311,11 @@
   margin-left: 5rem;
   margin-right: 5rem;
   margin-top: 5rem;
+  margin-bottom: 15rem;
   background-color: rgb(7, 98, 24);
   color: white;
   transition: 325ms;
+  font-family: monospace;
 }
 .madlib-show-container:hover {
   transform: scale(1.05);
@@ -300,12 +324,11 @@
 }
 
 .madlib-show-title {
-  font-size: 25px;
+  font-size: 35px;
   font-weight: 500;
   margin-bottom: 1rem;
   text-align: center;
   border-style: groove;
-  font-weight: bold;
   text-decoration: underline;
 }
 
@@ -346,7 +369,9 @@
   justify-content: space-around;
   text-align: center;
   margin-top: 2.5rem;
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
 }
 
 .madlib-play-form {
@@ -404,9 +429,8 @@
 
 .rating, .rating-dropdown {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
+  justify-content: space-around;
+  align-items: center;
   border: 5px;
   border-radius: 10px;
   border-color: rgba(11, 190, 8, 0.827);
@@ -414,11 +438,13 @@
   background-color: rgb(7, 98, 24);
   color: white;
   max-height: 5rem;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  font-weight: bold;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   margin-bottom: 1.5rem;
   transition: 325ms;
+  min-width: 175px;
+  font-family: monospace;
+  font-size: larger;
 }
 .rating-dropdown:hover {
   transform: scale(1.05);
@@ -427,7 +453,7 @@
 }
 
 .rating-submit {
-  margin-left: 1rem;
+  margin-left: 2rem;
   background-color: #ffffff;
   color: rgb(66, 197, 101);
   height: 2rem;
@@ -436,8 +462,8 @@
   border-radius: 10px;
   margin-top: .25rem;
   margin-bottom: .25rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: .25rem;
+  margin-right: .25rem;
   font-weight: bold;
   transition: 325ms;
 }
