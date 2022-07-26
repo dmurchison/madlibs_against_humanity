@@ -16,8 +16,6 @@ const Madlib = require("./models/Madlib")
 
 mongoose
 .connect(db, { useNewUrlParser: true })
-.then(() => console.log("Connected to MongoDB successfully"))
-.catch(err => console.log(err));
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -44,6 +42,6 @@ app.use("/api/madlibs", madlibs);
 
 
 const port = process.env.PORT || 5001;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.listen(port);
 
 
