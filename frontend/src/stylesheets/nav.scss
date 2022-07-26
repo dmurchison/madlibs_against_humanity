@@ -122,7 +122,7 @@
   // margin-top: 2.5rem;
   height: 5rem;
   bottom: 0;
-  background: radial-gradient(circle at bottom, rgb(0, 0, 0) 0, rgb(255, 255, 255) 100%);
+  background: radial-gradient(circle at bottom, rgb(42, 169, 189) 0, rgb(107, 226, 125) 100%);
   color: black;
   margin-bottom: 0;
   // position: fixed;
@@ -135,36 +135,41 @@
   // padding-bottom: 2rem;
   font-style: bold;
 }
-.portfolio-site{
+.portfolio-site, .portfolio-site:visited{
   box-sizing: border-box;
-  color: rgb(0, 94, 255);
+  // color: rgb(93, 93, 93);
+  color: white;
   text-decoration: none;
-  border-bottom: 2px solid rgb(0, 94, 255);
+  // border-bottom: 2px solid rgb(93, 93, 93);
+  border-bottom: 2px solid white;
+
   // margin-bottom: -1px;
 }
-.portfolio-site:visited {
-  color: rgb(0, 94, 255);
-}
+// .portfolio-site:hover {
+//   color: green;
+// }
 
 .Duncan, .Naran, .Mike{
   color: black;
-  border: 5px;
-  border-radius: 2rem;
-  border-color: rgb(5, 97, 22);
-  background-color: rgb(31, 252, 105);
-  // background-color: rgb(7, 98, 24);
-  // color: white;
-  border-style: groove;
+  border: 3.5px solid rgb(7, 98, 24);
+  border-radius: 2.5rem;
+  border-color: rgb(7, 98, 24);
+  background-color: rgb(81, 186, 104);
   padding: 10px 10px;
-  // margin-bottom: 2.5rem;
   width: 10rem;
   text-align: center;
   transition: 325ms;
+  // border-color: rgb(5, 97, 22);
+  // background-color: rgb(31, 252, 105);
+  // background-color: rgb(7, 98, 24);
+  // color: white;
+  // border-style: groove;
+  // margin-bottom: 2.5rem;
 }
 .Duncan:hover, .Naran:hover, .Mike:hover {
   transform: scale(1.25);
   cursor: crosshair;
-  background-color: white;
+  background-color: rgb(139, 255, 143);
 }
 
 .dev-links {
