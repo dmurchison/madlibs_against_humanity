@@ -1,3 +1,4 @@
+[Live Link](https://madlibsagainsthumanity.herokuapp.com/#/)
 # Madlibs Against Humanity
 
 Welcome to Madlibs Against Humanity, a place where users can create and review madlibs, and search based on category.
