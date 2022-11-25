@@ -109,7 +109,7 @@
   margin-right: 5rem;
   margin-bottom: 15rem;
 }
-@media screen and (max-width: 1195px) {
+@media screen and (max-width: 850px) {
   .madlib-compose-container, .madlib-play-container {
     display: flex;
     flex-direction: column;
@@ -175,7 +175,10 @@
 }
 
 .madlib-compose-submit-button {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
   background-color: #ffffff;
   color: rgb(66, 197, 101);
   padding: 10px;
@@ -340,7 +343,7 @@
 .edit-button, .play-button, .delete-button {
   background-color: white;
   color: rgb(7, 98, 24);
-  width: 25rem;
+  width: 100px;
   height: 2.5rem;
   border: rgb(66, 197, 101);
   border-style: groove;

@@ -169,3 +169,33 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 850px) {
+  .footer-container {
+    // padding: 1rem;
+    // height: 5rem;
+    width: 95%;
+    bottom: 0;
+    background: radial-gradient(circle at bottom, rgb(42, 169, 189) 0, rgb(107, 226, 125) 100%);
+    color: black;
+    margin-bottom: 0;
+    position: fixed;
+  }
+  .dev-info-container {
+    display: flex;
+    justify-content: space-between;
+    font-style: bold;
+  }
+  .Duncan, .Naran, .Mike{
+    color: black;
+    border: 1px solid rgb(7, 98, 24);
+    border-radius: 2.5rem;
+    border-color: rgb(7, 98, 24);
+    background-color: rgb(81, 186, 104);
+    width: 10rem;
+    text-align: center;
+    transition: 325ms;
+  }
+  .Duncan:hover, .Naran:hover, .Mike:hover {
+    cursor: crosshair;
+  }
+}
