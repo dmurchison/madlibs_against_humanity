@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
-const mongoose = require('mongoose');
-const db = require('./config/keys').mongoURI;
+const mongoose = require("mongoose");
+const db = require("./config/keys").mongoURI;
 const bodyParser = require("body-parser");
-const path = require('path');
+const path = require("path");
 
 // routes
 const users = require("./routes/api/users");
@@ -13,27 +13,28 @@ const madlibs = require("./routes/api/madlibs")
 const User = require("./models/User");
 const Madlib = require("./models/Madlib")
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.use(cors());
+  
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  })
+}
+
 
 mongoose
   .connect(db, { useNewUrlParser: true })
-  .then(() => console.log('Connected to MongoDB'));
+  .then(() => console.log("Connected to MongoDB"));
   
   
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const passport = require('passport');
+const passport = require("passport");
 app.use(passport.initialize());
-require('./config/passport')(passport);
+require("./config/passport")(passport);
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('frontend/build'));
-  app.use(cors());
-  
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-  })
-}
 
 app.get("/", (req, res) => {
   res.send("React Broke!");
@@ -46,3 +47,4 @@ app.use("/api/madlibs", madlibs);
 
 const port = process.env.PORT || 5001;
 app.listen(port);
+
