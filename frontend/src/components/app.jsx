@@ -1,7 +1,7 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch, Route } from 'react-router-dom';
-import '../stylesheets/reset.scss';
+import '../stylesheets/reset.css';
 import '../stylesheets/application.scss';
 import Footer from './nav/footer';
 
