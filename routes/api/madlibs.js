@@ -1,4 +1,11 @@
 // routes/api/madlibs.js
+
+// This is the file where we'll create the routes for our Madlibs as well as
+// exceptions for the routes that require authentication. We'll also be using
+// the same validation we created in the last section to validate our Madlib
+// data.
+
+
 const { json } = require('body-parser');
 const express = require('express');
 const router = express.Router();
@@ -54,7 +61,7 @@ router.patch('/:id', (req, res) => {
     reviewers: req.body.reviewers,
     rating: req.body.rating,
   }
-  
+
   Madlib.findOneAndUpdate(query, editData, (err, doc) => {
     if (err) return res.status(404).json(errors);
     return res.json(doc);
@@ -68,7 +75,7 @@ router.post('/',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    
+
     const regexForBlanks = /(?<=\[).[^\]]*/g; // regular expression denoting all substrings contained in brackets (excluding the brackets)
 
     const newMadlib = new Madlib({
@@ -77,7 +84,7 @@ router.post('/',
       title: req.body.title,
       blanks: req.body.body.match(regexForBlanks)
     });
-  
+
     newMadlib.save().then(madlib => res.json(madlib));
   }
 );

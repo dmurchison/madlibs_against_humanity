@@ -6,7 +6,7 @@ Welcome to Madlibs Against Humanity, a place where users can create and review m
 
 ## Index Page
 
-- This will host a signup and login button for the users to register and login. Ideally we will have a wheel of the top 15 madlips displayed for the user to see but not participate in until logged in.
+- This will host a sign up and login button for the users to register and login. Ideally we will have a wheel of the top 15 madlibs displayed for the user to see but not participate in until logged in.
 <img width="1680" alt="madlibs_against_humanity" src="https://user-images.githubusercontent.com/80483775/181113722-0783b3be-42ef-476c-a38a-483a9e1f0105.png">
 
 ## Creating a Madlib
